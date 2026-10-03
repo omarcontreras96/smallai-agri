@@ -40,3 +40,15 @@ Sources are the ones named on pages 8–10 and 17 of the World Bank brief, plus 
 ## Language and SMS
 - Swahili: Common Voice (CC0, ~700+ h), FLEURS `sw_ke`, MMS ASR + TTS (`facebook/mms-tts-swh`), MASSIVE `sw-KE` intent data (CC BY 4.0).
 - Africa's Talking sandbox: free, simulator at simulator.africastalking.com:1517, SMS + USSD, npm/pip SDKs. Real handsets cannot be used in sandbox.
+
+## Cross-country check of WFP price panels (verified Oct 3, ~7:45 PM ET)
+Question raised by another session: is Kenya too sparse, and is Uganda better? Same density analysis run on the WFP/HDX files for Uganda, Ethiopia, Rwanda and Kenya.
+
+| Country | Farmer crops with monthly panels | Town (non-camp) markets reporting | Current to | Price type / unit | Caveat |
+|---|---|---|---|---|---|
+| **Rwanda** | Potatoes (Irish) 2008–, beans (dry) 2008–, maize 2000–, bananas 2008–, cabbage | 27 towns, ~22 per month through Jul 2026 | 2026-08 (Aug partial) | Retail, KG | Best panel. Gov't has intervened in potato/maize prices at times; verify current regime. e-Soko (gov SMS prices) exists as precedent |
+| **Uganda** | Maize (white) 2011–, beans 2006–, sorghum | 28 towns, 35–41 markets/month in 2025 incl. ~25 towns | Towns stop ~Apr 2026; **May–Aug 2026 only 13 refugee settlements** | Retail, KG (wholesale series ended 2022) | Strong 2015–2025 backtest; 2026 reference 4–6 months stale |
+| Ethiopia | Maize (white) 85 markets, potatoes 38, fava beans 45, coffee 21 (retail KG) | 56–71 markets/month | 2026-07 | Retail, 100 KG | Dense, but no Africa's Talking, Amharic/Oromo, no team link |
+| Kenya | Potatoes, beans, maize (wholesale 50/90 KG bags) | Deep to 2020; 2021–25 sparse; **2024+ almost only 12 camps** | 2026-08 (camps) | Wholesale bags + camp retail | Weakest recent panel; strongest story (50 kg law) and team link |
+
+Implication: for the "evidence it works" backtest and a credible current band, Rwanda > Uganda > Ethiopia > Kenya. For team knowledge and Swahili, Kenya > Uganda > Rwanda.
