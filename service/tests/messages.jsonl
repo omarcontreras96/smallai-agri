@@ -1,0 +1,7 @@
+{"text": "maize 900 basin mbale", "expect": {"crop": "maize", "price": 900, "unit": "basin", "market": "Mbale"}}
+{"text": "mahindi 900 beseni mbale", "expect": {"crop": "maize", "price": 900, "unit": "basin", "market": "Mbale"}}
+{"text": "beans 4000 kg gulu", "expect": {"crop": "beans", "price": 4000, "unit": "kg", "market": "Gulu"}}
+{"text": "maharagwe shs 3500 kwa kilo lira", "expect": {"crop": "beans", "price": 3500, "unit": "kg", "market": "Lira"}}
+{"text": "bei ya mahindi mbarara", "expect": {"crop": "maize", "price": null, "unit": null, "market": "Mbarara"}}
+{"text": "kasooli 95000 gunia owino", "expect": {"crop": "maize", "price": 95000, "unit": "bag", "market": "Owino"}}
+{"text": "hello", "expect": {"crop": null, "price": null, "unit": null, "market": null}}

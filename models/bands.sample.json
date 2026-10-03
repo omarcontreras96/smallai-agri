@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-10-03T00:00:00Z",
+  "currency": "UGX", "unit": "KG", "price_type": "retail",
+  "markets": {
+    "Mbale":   {"aliases": ["mbale"],   "admin1": "Mbale",   "lat": 1.08, "lon": 34.17},
+    "Gulu":    {"aliases": ["gulu"],    "admin1": "Gulu",    "lat": 2.78, "lon": 32.30},
+    "Mbarara": {"aliases": ["mbarara"], "admin1": "Mbarara", "lat": -0.61, "lon": 30.65},
+    "Lira":    {"aliases": ["lira"],    "admin1": "Lira",    "lat": 2.25, "lon": 32.90},
+    "Owino":   {"aliases": ["owino", "kampala", "st balikuddembe"], "admin1": "Kampala", "lat": 0.31, "lon": 32.57}
+  },
+  "bands": {
+    "maize|Mbale":   {"last_obs_date": "2026-04-15", "last_obs_price": 1050, "h1": {"p10": 900, "p50": 1050, "p90": 1200}, "h2": {"p10": 950, "p50": 1100, "p90": 1300}, "h3": {"p10": 1000, "p50": 1150, "p90": 1350}, "n_reports": 0},
+    "beans|Mbale":   {"last_obs_date": "2026-04-15", "last_obs_price": 3800, "h1": {"p10": 3300, "p50": 3800, "p90": 4300}, "h2": {"p10": 3400, "p50": 3900, "p90": 4400}, "h3": {"p10": 3500, "p50": 4000, "p90": 4600}, "n_reports": 0},
+    "maize|Gulu":    {"last_obs_date": "2026-04-15", "last_obs_price": 1000, "h1": {"p10": 850, "p50": 1000, "p90": 1150}, "h2": {"p10": 900, "p50": 1050, "p90": 1250}, "h3": {"p10": 950, "p50": 1100, "p90": 1300}, "n_reports": 0},
+    "beans|Gulu":    {"last_obs_date": "2026-04-15", "last_obs_price": 3600, "h1": {"p10": 3100, "p50": 3600, "p90": 4100}, "h2": {"p10": 3200, "p50": 3700, "p90": 4200}, "h3": {"p10": 3300, "p50": 3800, "p90": 4400}, "n_reports": 0}
+  }
+}

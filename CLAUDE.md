@@ -1,6 +1,8 @@
 # CLAUDE.md — shared context for every Claude session on this repo
 
 ## What we are building
+**Decided (Oct 3, 8 PM ET): Uganda, maize + beans. SMS price-band assistant for the moment of sale.** Read docs/BUILD_PLAN.md (workstreams A/B and the interface contract), docs/CONCEPT.md, docs/DATA.md. Owner A (model/evidence) = Omar; owner B (service/parser/dashboard) = Pepe.
+
 A Small AI tool for the World Bank "Small AI for Development" hackathon challenge, Agriculture sector (Annex B). Persona: Noor, 38, 2 ha, coffee + maize + beans, Ondera highlands, member of a coffee cooperative, basic phone + occasional smartphone, 3G bundles, no Wi-Fi. Problem we attack: at harvest a buyer names a price she has no independent reference for (information asymmetry at point of sale).
 
 ## Hard rules from the brief (every design decision must respect these)
@@ -24,4 +26,11 @@ Build works end to end 25% · Development relevance 20% · Data grounding 15% ·
 - Never commit secrets; `.env.example` lists required vars.
 
 ## Commands
-(filled in once the stack is scaffolded)
+```
+uv sync                                   # install
+uv run python model/prepare.py            # WFP Uganda -> data/processed/monthly.csv
+uv run python model/train.py              # -> models/bands.json, models/metrics.json
+uv run uvicorn service.main:app --reload  # SMS service: POST /sms, GET /inbox, GET /coop
+uv run pytest                             # parser + nowcast tests
+```
+Data: `data/raw/wfp_food_prices_uga.csv` (WFP via HDX, CC BY-IGO). Currency UGX, retail prices per KG at town markets. Exclude markets containing "refugee settlement".

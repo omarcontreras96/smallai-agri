@@ -31,7 +31,10 @@ Reply composer: fixed Swahili/English templates.
 
 Interface for demo: Africa's Talking SMS/USSD sandbox (free, has a phone simulator). Fallback: simulated SMS thread in a web UI on a phone, airplane mode on camera. Production story: GSM modem at the co-op.
 
-## Country and crop — PROPOSED
+## Country and crop — DECIDED (Oct 3, 8 PM ET): Uganda, maize + beans
+See docs/DATA.md cross-country table and docs/BUILD_PLAN.md. The Kenya/potato analysis below is kept for the record.
+
+### Earlier proposal (superseded)
 - **Kenya.** WFP/HDX series live through Aug 2026, 28K rows: dry beans 40 markets, maize 35, Irish potatoes 37, tomatoes 22. Mexico's series stopped June 2022. Swahili well supported (Common Voice, FLEURS, MMS). Africa's Talking is Nairobi-based. Pepe has ground truth from sourcing from Kenyan farms.
 - **Irish potatoes** as core, **beans** riding along on the same pipeline. Potatoes: ~800K smallholders, co-ops in Nyandarua/Meru/Nakuru, brokers at farm gate, and the "extended bag" asymmetry (110–150 kg bags priced as 50 kg; 2019 law poorly enforced). Avoid maize (NCPB floor + large farms). Tomatoes as stretch.
 - Mexico (Chiapas, coyotes) kept for the "what localizing AI means to us" section.
@@ -39,11 +42,12 @@ Interface for demo: Africa's Talking SMS/USSD sandbox (free, has a phone simulat
 
 ## Sample exchange (video)
 ```
-Noor:  viazi gunia 2500 nyandarua
-Tool:  Gunia ya kg ngapi? 1=50kg 2=110kg
-Noor:  2
-Tool:  2500/110kg = 23/kg. Bei Nyandarua wiki hii: 35-45/kg. Ofa ni CHINI (~40%).
-       Omba 4000. Chama inanunua Alhamisi 38/kg.
+Noor:  mahindi 900 beseni mbale
+Tool:  Beseni ya kg ngapi? 1=15kg 2=20kg
+Noor:  1
+Tool:  900/15kg = 60/kg. Bei ya soko Mbale mwezi huu: 650-850/kg (rejareja).
+       Ofa ni CHINI (~20%). Omba 11000 kwa beseni. Mwezi ujao: inapanda kidogo.
+       Bei ya soko si bei ya shambani; uliza chama kabla ya kuuza.
 ```
 Plus one exchange where the tool says it is not sure.
 

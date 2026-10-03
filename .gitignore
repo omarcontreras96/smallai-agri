@@ -25,3 +25,4 @@ models/*.onnx
 data/raw/*
 !data/raw/wfp_food_prices_ken.csv
 !data/raw/wfp_markets_ken.csv
+!data/raw/wfp_food_prices_uga.csv
