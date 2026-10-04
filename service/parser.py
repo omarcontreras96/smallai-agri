@@ -39,7 +39,7 @@ LANG_MARKERS = {
     "sw": {"mahindi", "maharagwe", "maharage", "beseni", "gunia", "magunia", "debe", "kwa", "ya", "la", "bei",
            "ni", "na", "sokoni", "soko", "shilingi", "kilo", "mnunuzi", "anataka", "leo", "ngapi", "gani",
            "nimepewa", "nauza", "kuuza", "moja", "hapa", "sasa", "tafadhali", "wanataka", "mjini", "haragwe",
-           "maindi", "besheni"},
+           "maindi", "besheni", "habari", "asante", "sana", "jambo", "mambo", "sawa", "ndiyo", "hapana"},
     "en": {"maize", "beans", "bean", "corn", "basin", "bag", "bags", "sack", "sacks", "tin", "per", "price",
            "for", "at", "the", "market", "buyer", "offer", "offered", "wants", "today", "selling", "each",
            "how", "much", "what", "is", "please", "town", "kg"},
