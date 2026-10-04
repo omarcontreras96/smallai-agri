@@ -3,6 +3,7 @@
 POST /sms    Africa's Talking incoming-SMS webhook (form fields `from`, `text`, `to`); returns the reply as plain text
              and, if AT_* credentials are set, also sends it as an SMS (see sms_out.py).
 GET  /inbox  Local phone simulator (works with Wi-Fi off). POST /inbox sends a message from it.
+GET  /coop   Co-op dashboard: offers, model vs nowcast band per market, offers below P10.
 GET  /health Band file and DB info.
 """
 from contextlib import asynccontextmanager
@@ -13,7 +14,7 @@ from fastapi import BackgroundTasks, FastAPI, Form, Request
 from fastapi.responses import PlainTextResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-from service import db, reply, sms_out
+from service import coop, db, reply, sms_out
 from service.bands import MODELS, bands_path, load_bands
 
 DEFAULT_PHONE = "+256700000001"
@@ -67,6 +68,12 @@ def inbox_send(phone: str = Form(DEFAULT_PHONE), text: str = Form(...)):
     if text.strip():
         handle(phone, text)
     return RedirectResponse(f"/inbox?phone={quote(phone)}", status_code=303)
+
+
+@app.get("/coop")
+def coop_page(request: Request, crop: str = "maize"):
+    crop = crop if crop in ("maize", "beans") else "maize"
+    return templates.TemplateResponse(request, "coop.html", {"v": coop.view(app.state.db, app.state.bands, crop)})
 
 
 @app.get("/health")
