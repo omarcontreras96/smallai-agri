@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="refresh" content="30">
+<meta http-equiv="refresh" content="{{ refresh }}">
 <title>Co-op Price Board</title>
 <style>
   :root {
@@ -76,12 +76,12 @@
 <body>
 <main>
   <h1>Co-op price board</h1>
-  <p class="sub">Farmer-reported offers vs. the market band ({{ v.reference_month }}). Bands: WFP town retail (UGX/kg), refreshed by farmer reports. Updates every 30 s.</p>
+  <p class="sub">Farmer-reported offers vs. the market band ({{ v.reference_month }}). Bands: WFP town retail (UGX/kg), refreshed by farmer reports. Updates every {{ refresh }} s.</p>
 
   <div class="controls">
     <span class="seg">
-      <a href="?crop=maize" class="{{ 'on' if v.crop == 'maize' }}">Maize</a>
-      <a href="?crop=beans" class="{{ 'on' if v.crop == 'beans' }}">Beans</a>
+      <a href="?crop=maize&refresh={{ refresh }}" class="{{ 'on' if v.crop == 'maize' }}">Maize</a>
+      <a href="?crop=beans&refresh={{ refresh }}" class="{{ 'on' if v.crop == 'beans' }}">Beans</a>
     </span>
     {% if v.any_demo %}<span class="demo-note">Includes synthetic demo offers (tagged <span class="tag">demo</span>)</span>{% endif %}
   </div>

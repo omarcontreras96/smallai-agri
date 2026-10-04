@@ -72,9 +72,11 @@ def inbox_send(phone: str = Form(DEFAULT_PHONE), text: str = Form(...)):
 
 
 @app.get("/coop")
-def coop_page(request: Request, crop: str = "maize"):
+def coop_page(request: Request, crop: str = "maize", refresh: int = 30):
     crop = crop if crop in ("maize", "beans") else "maize"
-    return templates.TemplateResponse(request, "coop.html", {"v": coop.view(app.state.db, app.state.bands, crop)})
+    refresh = min(max(refresh, 1), 300)   # ?refresh=2 for filming the dashboard filling up
+    return templates.TemplateResponse(request, "coop.html",
+                                      {"v": coop.view(app.state.db, app.state.bands, crop), "refresh": refresh})
 
 
 @app.get("/health")
