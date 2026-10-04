@@ -42,3 +42,12 @@ def test_tidy_merges_maize_and_drops_camps():
     out = tidy(raw)
     assert sorted(out.crop) == ["beans", "maize"]
     assert out.set_index("crop").price.to_dict() == {"maize": 800.0, "beans": 3000.0}
+
+
+def test_tidy_drops_entry_errors():
+    row = dict(admin1="X", latitude=1.0, longitude=2.0, pricetype="Retail", unit="KG",
+               currency="UGX", market="Gulu", commodity="Maize (white)")
+    prices = {"2021-04-15": 1000.0, "2021-05-15": 1222.0, "2021-06-15": 2.0,
+              "2021-07-15": 1086.0, "2021-08-15": 1200.0}
+    out = tidy(pd.DataFrame([{**row, "date": k, "price": v} for k, v in prices.items()]))
+    assert len(out) == 4 and out.price.min() == 1000.0

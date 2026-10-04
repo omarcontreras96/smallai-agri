@@ -10,10 +10,14 @@ Rules (docs/BUILD_PLAN.md, workstream A):
   for the same market-month, keep "Maize (white)".
 - crop=beans from "Beans".
 - Town markets only: drop any market containing "refugee settlement".
+- Drop entry errors: a price more than OUTLIER_FACTOR x away from the median of
+  the same series' other observations within +-6 months (e.g. Gulu maize
+  2021-06 recorded at 2 UGX/kg between 1,222 and 1,086).
 """
 
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +27,7 @@ OUT = ROOT / "data/processed/monthly.csv"
 CROP_OF = {"Maize (white)": "maize", "Maize": "maize", "Beans": "beans"}
 # lower = preferred when two commodities map to the same crop in the same month
 PRIORITY = {"Maize (white)": 0, "Maize": 1, "Beans": 0}
+OUTLIER_FACTOR = 3.0
 
 
 def load(path: Path = RAW) -> pd.DataFrame:
@@ -53,7 +58,21 @@ def tidy(df: pd.DataFrame) -> pd.DataFrame:
         .rename(columns={"latitude": "lat", "longitude": "lon"})
     )
     cols = ["month", "crop", "market", "admin1", "lat", "lon", "price", "commodity"]
-    return d[cols].sort_values(["crop", "market", "month"]).reset_index(drop=True)
+    d = d[cols].sort_values(["crop", "market", "month"]).reset_index(drop=True)
+    return d[~entry_errors(d)].reset_index(drop=True)
+
+
+def entry_errors(d: pd.DataFrame) -> pd.Series:
+    """True where a price is > OUTLIER_FACTOR x off its series' neighbours (+-6 months)."""
+    bad = pd.Series(False, index=d.index)
+    for _, s in d.groupby(["crop", "market"]):
+        t = s.month.dt.year.to_numpy() * 12 + s.month.dt.month.to_numpy()
+        lp = np.log(s.price.to_numpy())
+        for i in range(len(s)):
+            near = (np.abs(t - t[i]) <= 6) & (np.arange(len(s)) != i)
+            if near.sum() >= 2 and abs(lp[i] - np.median(lp[near])) > np.log(OUTLIER_FACTOR):
+                bad[s.index[i]] = True
+    return bad
 
 
 def main() -> None:
