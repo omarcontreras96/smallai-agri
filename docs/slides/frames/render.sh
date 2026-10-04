@@ -14,7 +14,7 @@ if [ -z "${CHROME:-}" ]; then
 fi
 # Windows (Git Bash): Chrome/Edge need Windows-style paths
 winpath() { if command -v cygpath >/dev/null; then cygpath -m "$1"; else echo "$1"; fi; }
-for f in frame_a_problem frame_b_stack frame_d_question frame_e_sourcespot; do
+for f in frame_a_problem frame_b_stack frame_d_question frame_e_sourcespot frame_f_no frame_g_end; do
   out="$PWD/../$f.png"
   rm -f "$out"
   profile="$(mktemp -d)"
