@@ -5,3 +5,196 @@
 {"text": "bei ya mahindi mbarara", "expect": {"crop": "maize", "price": null, "unit": null, "market": "Mbarara"}}
 {"text": "kasooli 95000 gunia owino", "expect": {"crop": "maize", "price": 95000, "unit": "bag", "market": "Owino"}}
 {"text": "hello", "expect": {"crop": null, "price": null, "unit": null, "market": null}}
+{"text": "Mahindi 1,200/= kwa kilo Mbale", "expect": {"crop": "maize", "price": 1200, "unit": "kg", "market": "Mbale", "lang": "sw"}}
+{"text": "MAIZE 95K BAG MASAKA", "expect": {"crop": "maize", "price": 95000, "unit": "bag", "market": "Masaka", "lang": "en"}}
+{"text": "beans 4200/kg soroti", "expect": {"crop": "beans", "price": 4200, "unit": "kg", "market": "Soroti", "lang": "en"}}
+{"text": "maharagwe elfu 60 debe tororo", "expect": {"crop": "beans", "price": 60000, "unit": "tin", "market": "Tororo", "lang": "sw"}}
+{"text": "mahindi shs.950 per kg jinja", "expect": {"crop": "maize", "price": 950, "unit": "kg", "market": "Jinja"}}
+{"text": "maize ugx 1100 @ kg hoima", "expect": {"crop": "maize", "price": 1100, "unit": "kg", "market": "Hoima", "lang": "en"}}
+{"text": "mahindi 15000/- beseni iganga", "expect": {"crop": "maize", "price": 15000, "unit": "basin", "market": "Iganga", "lang": "sw"}}
+{"text": "kasooli 1,000 buli kilo mukono", "expect": {"crop": "maize", "price": 1000, "unit": "kg", "market": "Mukono"}}
+{"text": "mahindi gunia 100kg 95000 lira", "expect": {"crop": "maize", "price": 95000, "unit": "bag", "market": "Lira", "unit_kg": 100}}
+{"text": "maize basin 20kg 18000 gulu", "expect": {"crop": "maize", "price": 18000, "unit": "basin", "market": "Gulu", "unit_kg": 20}}
+{"text": "beseni ya kilo 15 mahindi 14000 mbale", "expect": {"crop": "maize", "price": 14000, "unit": "basin", "market": "Mbale", "unit_kg": 15}}
+{"text": "beans sack of 90 kg 330000 arua", "expect": {"crop": "beans", "price": 330000, "unit": "bag", "market": "Arua", "unit_kg": 90}}
+{"text": "2 bags maize 90000 each masindi", "expect": {"crop": "maize", "price": 90000, "unit": "bag", "market": "Masindi", "qty": 2}}
+{"text": "magunia 3 mahindi 92000 kwa gunia lira", "expect": {"crop": "maize", "price": 92000, "unit": "bag", "market": "Lira", "qty": 3}}
+{"text": "50 kg beans 190000 kasese", "expect": {"crop": "beans", "price": 190000, "unit": "kg", "market": "Kasese", "qty": 50}}
+{"text": "maize 1000 kg fort portal", "expect": {"crop": "maize", "price": 1000, "unit": "kg", "market": "Fort Portal"}}
+{"text": "beans 4500 per kg fortportal", "expect": {"crop": "beans", "price": 4500, "unit": "kg", "market": "Fort Portal"}}
+{"text": "mahindi 1100 kilo kampala", "expect": {"crop": "maize", "price": 1100, "unit": "kg", "market": "Owino"}}
+{"text": "mahindii 900 besen mballe", "expect": {"crop": "maize", "price": 900, "unit": "basin", "market": "Mbale"}}
+{"text": "maharagwee 4000 kilo gullu", "expect": {"crop": "beans", "price": 4000, "unit": "kg", "market": "Gulu"}}
+{"text": "maze 1000 kg masakka", "expect": {"crop": "maize", "price": 1000, "unit": "kg", "market": "Masaka"}}
+{"text": "mnunuzi anataka kunipa 850 kwa kilo ya mahindi hapa mbale", "expect": {"crop": "maize", "price": 850, "unit": "kg", "market": "Mbale", "lang": "sw"}}
+{"text": "buyer offered me 3800 per kg for my beans in gulu today", "expect": {"crop": "beans", "price": 3800, "unit": "kg", "market": "Gulu", "lang": "en"}}
+{"text": "Gulu: maize 1000/kg", "expect": {"crop": "maize", "price": 1000, "unit": "kg", "market": "Gulu"}}
+{"text": "mahindi 900 kilo kitgum", "expect": {"crop": "maize", "price": 900, "unit": "kg", "market": null}}
+{"text": "maize 1000 kg kabale", "expect": {"crop": "maize", "price": 1000, "unit": "kg", "market": null}}
+{"text": "coffee 7000 kg mbale", "expect": {"crop": null, "price": 7000, "unit": "kg", "market": "Mbale"}}
+{"text": "habari", "expect": {"crop": null, "price": null, "unit": null, "market": null}}
+{"text": "asante sana", "expect": {"crop": null, "price": null, "unit": null, "market": null}}
+{"text": "price of beans in lira", "expect": {"crop": "beans", "price": null, "unit": null, "market": "Lira", "lang": "en"}}
+{"text": "CORN KG SHS 1300 AT NAPAK MARKET", "expect": {"crop": "maize", "price": 1300, "unit": "kg", "market": "Napak", "lang": "en"}}
+{"text": "mahindi 14000/- kwa beseni Mbale", "expect": {"crop": "maize", "price": 14000, "unit": "basin", "market": "Mbale", "lang": "sw"}}
+{"text": "owino mahidi 750 kg", "expect": {"crop": "maize", "price": 750, "unit": "kg", "market": "Owino", "lang": "sw"}}
+{"text": "bei ya maharage Torroro ni shs. 488000 kwa gunia", "expect": {"crop": "beans", "price": 488000, "unit": "bag", "market": "Tororo", "lang": "sw"}}
+{"text": "bei ya maharage jinja", "expect": {"crop": "beans", "price": null, "unit": null, "market": "Jinja", "lang": "sw"}}
+{"text": "CORN 18500 PER BASIN IGANGA", "expect": {"crop": "maize", "price": 18500, "unit": "basin", "market": "Iganga", "lang": "en"}}
+{"text": "MAHARAGWE 74000/= KWA BESENI FORT PORTAL", "expect": {"crop": "beans", "price": 74000, "unit": "basin", "market": "Fort Portal", "lang": "sw"}}
+{"text": "BEANS 5200 KG NAPAK", "expect": {"crop": "beans", "price": 5200, "unit": "kg", "market": "Napak", "lang": "en"}}
+{"text": "MNUNUZI ANATAKA MAHINDI 1150/- KWA KILO SOKO LA SOROTI", "expect": {"crop": "maize", "price": 1150, "unit": "kg", "market": "Soroti", "lang": "sw"}}
+{"text": "beans basin 76500 at owino market", "expect": {"crop": "beans", "price": 76500, "unit": "basin", "market": "Owino", "lang": "en"}}
+{"text": "ebiajnjaalo 84500 debe Tororo", "expect": {"crop": "beans", "price": 84500, "unit": "tin", "market": "Tororo", "lang": "lg"}}
+{"text": "beans price kaabong", "expect": {"crop": "beans", "price": null, "unit": null, "market": "Kaabong", "lang": "en"}}
+{"text": "corn basin 18k at Hoima market", "expect": {"crop": "maize", "price": 18000, "unit": "basin", "market": "Hoima", "lang": "en"}}
+{"text": "maharage 50500 beseni koido", "expect": {"crop": "beans", "price": 50500, "unit": "basin", "market": "Kotido", "lang": "sw"}}
+{"text": "mahhindi 1450 kwa kg busia", "expect": {"crop": "maize", "price": 1450, "unit": "kg", "market": "Busia", "lang": "sw"}}
+{"text": "mahindi shs. 1200 kilo gulu", "expect": {"crop": "maize", "price": 1200, "unit": "kg", "market": "Gulu", "lang": "sw"}}
+{"text": "jinja maize 1050 kg", "expect": {"crop": "maize", "price": 1050, "unit": "kg", "market": "Jinja", "lang": "en"}}
+{"text": "Mukono maize 1100 kg", "expect": {"crop": "maize", "price": 1100, "unit": "kg", "market": "Mukono", "lang": "en"}}
+{"text": "bei ya maharage kapchorwa ni 397000 kwa gunia", "expect": {"crop": "beans", "price": 397000, "unit": "bag", "market": "Kapchorwa", "lang": "sw"}}
+{"text": "CORN 20,500 BASIN NAPAK", "expect": {"crop": "maize", "price": 20500, "unit": "basin", "market": "Napak", "lang": "en"}}
+{"text": "bei ya mahindi Nabilatuk ni 750 kwa kg", "expect": {"crop": "maize", "price": 750, "unit": "kg", "market": "Nabilatuk", "lang": "sw"}}
+{"text": "maharagwe 3,900 kilo kotido", "expect": {"crop": "beans", "price": 3900, "unit": "kg", "market": "Kotido", "lang": "sw"}}
+{"text": "mnunuzi anataka maharagwe 77500 kwa beseni soko la fort portal", "expect": {"crop": "beans", "price": 77500, "unit": "basin", "market": "Fort Portal", "lang": "sw"}}
+{"text": "ksaooli 1200/- kilo hoima", "expect": {"crop": "maize", "price": 1200, "unit": "kg", "market": "Hoima", "lang": "lg"}}
+{"text": "kapchorwa maharragwe 64000/- debe", "expect": {"crop": "beans", "price": 64000, "unit": "tin", "market": "Kapchorwa", "lang": "sw"}}
+{"text": "bei ya mahindi Namalu ni 950 kwa kilo", "expect": {"crop": "maize", "price": 950, "unit": "kg", "market": "Namalu", "lang": "sw"}}
+{"text": "beans shs 67500 per tin Owino", "expect": {"crop": "beans", "price": 67500, "unit": "tin", "market": "Owino", "lang": "en"}}
+{"text": "ebijanjaalo 4750/= buli kilo mu Sooroti", "expect": {"crop": "beans", "price": 4750, "unit": "kg", "market": "Soroti", "lang": "lg"}}
+{"text": "maize kg shs. 1300 at arua market", "expect": {"crop": "maize", "price": 1300, "unit": "kg", "market": "Arua", "lang": "en"}}
+{"text": "buyer offers 800/- per kg for corn at gulu", "expect": {"crop": "maize", "price": 800, "unit": "kg", "market": "Gulu", "lang": "en"}}
+{"text": "MNUNUZI ANATAKA MAHINDI 28500 KWA DEBE SOKO LA KOTTIDO", "expect": {"crop": "maize", "price": 28500, "unit": "tin", "market": "Kotido", "lang": "sw"}}
+{"text": "ebijanjaalo 4,400 kilo nabilatuk", "expect": {"crop": "beans", "price": 4400, "unit": "kg", "market": "Nabilatuk", "lang": "lg"}}
+{"text": "mnunuzi anataka mahinid 1100 kwa kilo soko la karenga", "expect": {"crop": "maize", "price": 1100, "unit": "kg", "market": "Karenga", "lang": "sw"}}
+{"text": "price of beans in fortportal", "expect": {"crop": "beans", "price": null, "unit": null, "market": "Fort Portal", "lang": "en"}}
+{"text": "kasooli 15500 beseni makaratin", "expect": {"crop": "maize", "price": 15500, "unit": "basin", "market": "Makaratin", "lang": "lg"}}
+{"text": "Kaabong beans 75000 basin", "expect": {"crop": "beans", "price": 75000, "unit": "basin", "market": "Kaabong", "lang": "en"}}
+{"text": "beans 72000/- per basin owino", "expect": {"crop": "beans", "price": 72000, "unit": "basin", "market": "Owino", "lang": "en"}}
+{"text": "bei ya mahindi tororo ni 950/= kwa kg", "expect": {"crop": "maize", "price": 950, "unit": "kg", "market": "Tororo", "lang": "sw"}}
+{"text": "nimepewa 13k kwa beseni ya mahindi Kaaboong", "expect": {"crop": "maize", "price": 13000, "unit": "basin", "market": "Kaabong", "lang": "sw"}}
+{"text": "Masaka beans 481000 bag", "expect": {"crop": "beans", "price": 481000, "unit": "bag", "market": "Masaka", "lang": "en"}}
+{"text": "maharage 74500/- beseni Karita", "expect": {"crop": "beans", "price": 74500, "unit": "basin", "market": "Karita", "lang": "sw"}}
+{"text": "buyer offers 1300 per kg for corn at busia", "expect": {"crop": "maize", "price": 1300, "unit": "kg", "market": "Busia", "lang": "en"}}
+{"text": "mahindi 1450 kilo masaka", "expect": {"crop": "maize", "price": 1450, "unit": "kg", "market": "Masaka", "lang": "sw"}}
+{"text": "MAHINDI 1000/= KWA KILO KAABONG", "expect": {"crop": "maize", "price": 1000, "unit": "kg", "market": "Kaabong", "lang": "sw"}}
+{"text": "MBRARA MAHARAGE 4450 KILO", "expect": {"crop": "beans", "price": 4450, "unit": "kg", "market": "Mbarara", "lang": "sw"}}
+{"text": "beans shs 55000 per basin fort portal", "expect": {"crop": "beans", "price": 55000, "unit": "basin", "market": "Fort Portal", "lang": "en"}}
+{"text": "ebijanjaalo shs 3400 buli kilo mu Moroto", "expect": {"crop": "beans", "price": 3400, "unit": "kg", "market": "Moroto", "lang": "lg"}}
+{"text": "beans kg 3400/- at karita market", "expect": {"crop": "beans", "price": 3400, "unit": "kg", "market": "Karita", "lang": "en"}}
+{"text": "FORT PORTAL MAIZE 122K SACK", "expect": {"crop": "maize", "price": 122000, "unit": "bag", "market": "Fort Portal", "lang": "en"}}
+{"text": "bei ya maharagwe namalu ni 69000/- kwa beseni", "expect": {"crop": "beans", "price": 69000, "unit": "basin", "market": "Namalu", "lang": "sw"}}
+{"text": "bei ya mahindi Gulu ni 85000/- kwa gunia", "expect": {"crop": "maize", "price": 85000, "unit": "bag", "market": "Gulu", "lang": "sw"}}
+{"text": "buyer offers 4500 per kg for beans at gulu", "expect": {"crop": "beans", "price": 4500, "unit": "kg", "market": "Gulu", "lang": "en"}}
+{"text": "mukoono corn 1450 kg", "expect": {"crop": "maize", "price": 1450, "unit": "kg", "market": "Mukono", "lang": "en"}}
+{"text": "nimepewa ugx 88000 kwa gunia ya mahinddi mbararra", "expect": {"crop": "maize", "price": 88000, "unit": "bag", "market": "Mbarara", "lang": "sw"}}
+{"text": "ebijanjaalo 3300 kilo Mbarara", "expect": {"crop": "beans", "price": 3300, "unit": "kg", "market": "Mbarara", "lang": "lg"}}
+{"text": "bei ya mahindi sokoni lira ni ngapi", "expect": {"crop": "maize", "price": null, "unit": null, "market": "Lira", "lang": "sw"}}
+{"text": "beans 504,000 sack Fort Portal", "expect": {"crop": "beans", "price": 504000, "unit": "bag", "market": "Fort Portal", "lang": "en"}}
+{"text": "mnunuzi anataka mahharagwe ugx 59000 kwa beseni soko la tororo", "expect": {"crop": "beans", "price": 59000, "unit": "basin", "market": "Tororo", "lang": "sw"}}
+{"text": "bei ya mahindi Moroto", "expect": {"crop": "maize", "price": null, "unit": null, "market": "Moroto", "lang": "sw"}}
+{"text": "kasooli 1100 buli kilo mu Owino", "expect": {"crop": "maize", "price": 1100, "unit": "kg", "market": "Owino", "lang": "lg"}}
+{"text": "MNUNUZI ANATAKA MAHARAGE SHS. 4450 KWA KG SOKO LA FORT PORTAL", "expect": {"crop": "beans", "price": 4450, "unit": "kg", "market": "Fort Portal", "lang": "sw"}}
+{"text": "maharagwe 410000 gunia karita", "expect": {"crop": "beans", "price": 410000, "unit": "bag", "market": "Karita", "lang": "sw"}}
+{"text": "beans 309000/= per bag Mukkono", "expect": {"crop": "beans", "price": 309000, "unit": "bag", "market": "Mukono", "lang": "en"}}
+{"text": "kaaabong maize shs 1250 kg", "expect": {"crop": "maize", "price": 1250, "unit": "kg", "market": "Kaabong", "lang": "en"}}
+{"text": "bei ya mahindi moroto ni 22000/- kwa debe", "expect": {"crop": "maize", "price": 22000, "unit": "tin", "market": "Moroto", "lang": "sw"}}
+{"text": "beans 371000/- per sack wakiso", "expect": {"crop": "beans", "price": 371000, "unit": "bag", "market": "Wakiso", "lang": "en"}}
+{"text": "NIMEPEWA 66000 KWA BESENI YA MAHARAGE BUSIA", "expect": {"crop": "beans", "price": 66000, "unit": "basin", "market": "Busia", "lang": "sw"}}
+{"text": "ebijanjaalo 68000 beseni wakiso", "expect": {"crop": "beans", "price": 68000, "unit": "basin", "market": "Wakiso", "lang": "lg"}}
+{"text": "ebijanjaalo 371k buli ensawo mu Moroto", "expect": {"crop": "beans", "price": 371000, "unit": "bag", "market": "Moroto", "lang": "lg"}}
+{"text": "Mukono corn 1200 kg", "expect": {"crop": "maize", "price": 1200, "unit": "kg", "market": "Mukono", "lang": "en"}}
+{"text": "kasooli 84,000 ensawo kariat", "expect": {"crop": "maize", "price": 84000, "unit": "bag", "market": "Karita", "lang": "lg"}}
+{"text": "buyer offers 142000/- per sack for maize at masaka", "expect": {"crop": "maize", "price": 142000, "unit": "bag", "market": "Masaka", "lang": "en"}}
+{"text": "maharage 3700 kg mbarara", "expect": {"crop": "beans", "price": 3700, "unit": "kg", "market": "Mbarara", "lang": "sw"}}
+{"text": "bei ya maharagge namalu ni 292k kwa gunia", "expect": {"crop": "beans", "price": 292000, "unit": "bag", "market": "Namalu", "lang": "sw"}}
+{"text": "beans 481000/= bag kaabong", "expect": {"crop": "beans", "price": 481000, "unit": "bag", "market": "Kaabong", "lang": "en"}}
+{"text": "Napak mahaaragwe 4,100 kg", "expect": {"crop": "beans", "price": 4100, "unit": "kg", "market": "Napak", "lang": "sw"}}
+{"text": "beans 392k per bag Tororo", "expect": {"crop": "beans", "price": 392000, "unit": "bag", "market": "Tororo", "lang": "en"}}
+{"text": "beans kg shs. 3700 at wakiso market", "expect": {"crop": "beans", "price": 3700, "unit": "kg", "market": "Wakiso", "lang": "en"}}
+{"text": "mnunuzi anataka mahindi 121000/= kwa gunia soko la Masaka", "expect": {"crop": "maize", "price": 121000, "unit": "bag", "market": "Masaka", "lang": "sw"}}
+{"text": "mnunuzi anataka mahindi 15000/- kwa beseni soko la busia", "expect": {"crop": "maize", "price": 15000, "unit": "basin", "market": "Busia", "lang": "sw"}}
+{"text": "maize ugx 18500 per tin Lira", "expect": {"crop": "maize", "price": 18500, "unit": "tin", "market": "Lira", "lang": "en"}}
+{"text": "nabilatuk corn 13000 basin", "expect": {"crop": "maize", "price": 13000, "unit": "basin", "market": "Nabilatuk", "lang": "en"}}
+{"text": "corn basin 11500 at busia market", "expect": {"crop": "maize", "price": 11500, "unit": "basin", "market": "Busia", "lang": "en"}}
+{"text": "mahindi 79000 kwa gunia Soroti", "expect": {"crop": "maize", "price": 79000, "unit": "bag", "market": "Soroti", "lang": "sw"}}
+{"text": "arua beans ugx 46000 basin", "expect": {"crop": "beans", "price": 46000, "unit": "basin", "market": "Arua", "lang": "en"}}
+{"text": "NIMEPEWA SHS. 72000 KWA GUNIA YA MAHINDI MOROTO", "expect": {"crop": "maize", "price": 72000, "unit": "bag", "market": "Moroto", "lang": "sw"}}
+{"text": "beans basin 67,500 at fortt portal market", "expect": {"crop": "beans", "price": 67500, "unit": "basin", "market": "Fort Portal", "lang": "en"}}
+{"text": "Gulu beans shs 453000 bag", "expect": {"crop": "beans", "price": 453000, "unit": "bag", "market": "Gulu", "lang": "en"}}
+{"text": "beans 5100 kg lira", "expect": {"crop": "beans", "price": 5100, "unit": "kg", "market": "Lira", "lang": "en"}}
+{"text": "nimepewa 14500/= kwa beseni ya mahindi napak", "expect": {"crop": "maize", "price": 14500, "unit": "basin", "market": "Napak", "lang": "sw"}}
+{"text": "EBIJANJAALO 49500 BESENI WAKISO", "expect": {"crop": "beans", "price": 49500, "unit": "basin", "market": "Wakiso", "lang": "lg"}}
+{"text": "beans bag 514000/- at gulu market", "expect": {"crop": "beans", "price": 514000, "unit": "bag", "market": "Gulu", "lang": "en"}}
+{"text": "mahindi 1300/- kilo kacphorwa", "expect": {"crop": "maize", "price": 1300, "unit": "kg", "market": "Kapchorwa", "lang": "sw"}}
+{"text": "Karita maharagwe 2950 kilo", "expect": {"crop": "beans", "price": 2950, "unit": "kg", "market": "Karita", "lang": "sw"}}
+{"text": "masaka maharage 4450/- kg", "expect": {"crop": "beans", "price": 4450, "unit": "kg", "market": "Masaka", "lang": "sw"}}
+{"text": "nimepewa 950/- kwa kilo ya mahindi arua", "expect": {"crop": "maize", "price": 950, "unit": "kg", "market": "Arua", "lang": "sw"}}
+{"text": "bei ya maahindi masindi ni 17500 kwa beseni", "expect": {"crop": "maize", "price": 17500, "unit": "basin", "market": "Masindi", "lang": "sw"}}
+{"text": "kasooli 15500 buli beseni mu Sroti", "expect": {"crop": "maize", "price": 15500, "unit": "basin", "market": "Soroti", "lang": "lg"}}
+{"text": "MAHARAWE 364000 KWA GUNIA OWINO", "expect": {"crop": "beans", "price": 364000, "unit": "bag", "market": "Owino", "lang": "sw"}}
+{"text": "mnunuzi anataka mahinndi 21500/= kwa beseni soko la Owino", "expect": {"crop": "maize", "price": 21500, "unit": "basin", "market": "Owino", "lang": "sw"}}
+{"text": "bei ya maharage sokoni mukono ni ngapi", "expect": {"crop": "beans", "price": null, "unit": null, "market": "Mukono", "lang": "sw"}}
+{"text": "nimepewa 26k kwa debe ya mhaindi kasese", "expect": {"crop": "maize", "price": 26000, "unit": "tin", "market": "Kasese", "lang": "sw"}}
+{"text": "maharagwe 60000 debe masindi", "expect": {"crop": "beans", "price": 60000, "unit": "tin", "market": "Masindi", "lang": "sw"}}
+{"text": "KASOOLI 74000/= ENSAWO KASESE", "expect": {"crop": "maize", "price": 74000, "unit": "bag", "market": "Kasese", "lang": "lg"}}
+{"text": "beans 5,100 per kg kapchorwa", "expect": {"crop": "beans", "price": 5100, "unit": "kg", "market": "Kapchorwa", "lang": "en"}}
+{"text": "MUKONO MAHARAGE 406000/= GUNIA", "expect": {"crop": "beans", "price": 406000, "unit": "bag", "market": "Mukono", "lang": "sw"}}
+{"text": "mnunuzi anataka maindi 137000/= kwa gunia soko la karita", "expect": {"crop": "maize", "price": 137000, "unit": "bag", "market": "Karita", "lang": "sw"}}
+{"text": "beans ugx 74500 basin hoima", "expect": {"crop": "beans", "price": 74500, "unit": "basin", "market": "Hoima", "lang": "en"}}
+{"text": "bei ya maharage Morroto ni 497000/- kwa gunia", "expect": {"crop": "beans", "price": 497000, "unit": "bag", "market": "Moroto", "lang": "sw"}}
+{"text": "ebijanjaalo 48k beseni owino", "expect": {"crop": "beans", "price": 48000, "unit": "basin", "market": "Owino", "lang": "lg"}}
+{"text": "BUYER OFFERS SHS. 3000 PER KG FOR BEANS AT MBALE", "expect": {"crop": "beans", "price": 3000, "unit": "kg", "market": "Mbale", "lang": "en"}}
+{"text": "BEI YA MAHINDI TORORO NI 15000 KWA BESENI", "expect": {"crop": "maize", "price": 15000, "unit": "basin", "market": "Tororo", "lang": "sw"}}
+{"text": "ebijannjaalo 74500 buli beseni mu sorotti", "expect": {"crop": "beans", "price": 74500, "unit": "basin", "market": "Soroti", "lang": "lg"}}
+{"text": "beans 4350 kg gulu", "expect": {"crop": "beans", "price": 4350, "unit": "kg", "market": "Gulu", "lang": "en"}}
+{"text": "mahindi 1,250 kg mukno", "expect": {"crop": "maize", "price": 1250, "unit": "kg", "market": "Mukono", "lang": "sw"}}
+{"text": "buyer offers 99000 per bag for corn at kotido", "expect": {"crop": "maize", "price": 99000, "unit": "bag", "market": "Kotido", "lang": "en"}}
+{"text": "hoima beans 479000/- sack", "expect": {"crop": "beans", "price": 479000, "unit": "bag", "market": "Hoima", "lang": "en"}}
+{"text": "bei ya maarage busia ni 71500 kwa beseni", "expect": {"crop": "beans", "price": 71500, "unit": "basin", "market": "Busia", "lang": "sw"}}
+{"text": "bei ya maharagwe wakiiso ni 495000 kwa gunia", "expect": {"crop": "beans", "price": 495000, "unit": "bag", "market": "Wakiso", "lang": "sw"}}
+{"text": "bei ya maharagwe soroti ni 53500/- kwa beseni", "expect": {"crop": "beans", "price": 53500, "unit": "basin", "market": "Soroti", "lang": "sw"}}
+{"text": "maharage 69000/- debe iganga", "expect": {"crop": "beans", "price": 69000, "unit": "tin", "market": "Iganga", "lang": "sw"}}
+{"text": "BEI YA MAHINDI ARUA NI SHS. 900 KWA KG", "expect": {"crop": "maize", "price": 900, "unit": "kg", "market": "Arua", "lang": "sw"}}
+{"text": "mnunuzi anataka maharage 5100 kwa kilo soko la kaseese", "expect": {"crop": "beans", "price": 5100, "unit": "kg", "market": "Kasese", "lang": "sw"}}
+{"text": "mahindi shs 17000 debe kapchorwa", "expect": {"crop": "maize", "price": 17000, "unit": "tin", "market": "Kapchorwa", "lang": "sw"}}
+{"text": "bei ya mahindi Soroti ni 850 kwa kilo", "expect": {"crop": "maize", "price": 850, "unit": "kg", "market": "Soroti", "lang": "sw"}}
+{"text": "kasooil 18000/= beseni kaabong", "expect": {"crop": "maize", "price": 18000, "unit": "basin", "market": "Kaabong", "lang": "lg"}}
+{"text": "beans price Masindi", "expect": {"crop": "beans", "price": null, "unit": null, "market": "Masindi", "lang": "en"}}
+{"text": "makaratin beans 69,500 basin", "expect": {"crop": "beans", "price": 69500, "unit": "basin", "market": "Makaratin", "lang": "en"}}
+{"text": "mahindi 22500/= debe masindi", "expect": {"crop": "maize", "price": 22500, "unit": "tin", "market": "Masindi", "lang": "sw"}}
+{"text": "ebijanjaalo 422000/- ensawo hoima", "expect": {"crop": "beans", "price": 422000, "unit": "bag", "market": "Hoima", "lang": "lg"}}
+{"text": "ebijanjaalo 4150/- buli kilo mu torroo", "expect": {"crop": "beans", "price": 4150, "unit": "kg", "market": "Tororo", "lang": "lg"}}
+{"text": "Masaka beans ugx 2950 kg", "expect": {"crop": "beans", "price": 2950, "unit": "kg", "market": "Masaka", "lang": "en"}}
+{"text": "buyer offers 3700 per kg for beans at Wakiso", "expect": {"crop": "beans", "price": 3700, "unit": "kg", "market": "Wakiso", "lang": "en"}}
+{"text": "mahidni 135k kwa gunia hoima", "expect": {"crop": "maize", "price": 135000, "unit": "bag", "market": "Hoima", "lang": "sw"}}
+{"text": "ebijanjaalo 50500 beseni masaka", "expect": {"crop": "beans", "price": 50500, "unit": "basin", "market": "Masaka", "lang": "lg"}}
+{"text": "beans shs 463000 sack Karenga", "expect": {"crop": "beans", "price": 463000, "unit": "bag", "market": "Karenga", "lang": "en"}}
+{"text": "nimepewa 309000/= kwa gunia ya maharage Fort Portal", "expect": {"crop": "beans", "price": 309000, "unit": "bag", "market": "Fort Portal", "lang": "sw"}}
+{"text": "bei ya maharaagwe owino", "expect": {"crop": "beans", "price": null, "unit": null, "market": "Owino", "lang": "sw"}}
+{"text": "beans tin 71500/- at masindi market", "expect": {"crop": "beans", "price": 71500, "unit": "tin", "market": "Masindi", "lang": "en"}}
+{"text": "beans basin ugx 53000 at namlau market", "expect": {"crop": "beans", "price": 53000, "unit": "basin", "market": "Namalu", "lang": "en"}}
+{"text": "maize 18k per basin napak", "expect": {"crop": "maize", "price": 18000, "unit": "basin", "market": "Napak", "lang": "en"}}
+{"text": "MNUNUZI ANATAKA MAHINDI 1100/- KWA KG SOKO LA JINJA", "expect": {"crop": "maize", "price": 1100, "unit": "kg", "market": "Jinja", "lang": "sw"}}
+{"text": "mbale mahindi 21500/= debe", "expect": {"crop": "maize", "price": 21500, "unit": "tin", "market": "Mbale", "lang": "sw"}}
+{"text": "morto beans 93000/= tin", "expect": {"crop": "beans", "price": 93000, "unit": "tin", "market": "Moroto", "lang": "en"}}
+{"text": "buyer offers 54500 per basin for beans at karenga", "expect": {"crop": "beans", "price": 54500, "unit": "basin", "market": "Karenga", "lang": "en"}}
+{"text": "beans basin 52000/- at Makaratni market", "expect": {"crop": "beans", "price": 52000, "unit": "basin", "market": "Makaratin", "lang": "en"}}
+{"text": "nimepewa 16500/- kwa debe ya mahinndi Muono", "expect": {"crop": "maize", "price": 16500, "unit": "tin", "market": "Mukono", "lang": "sw"}}
+{"text": "ebijanjaalo shs 68000 beseni karenga", "expect": {"crop": "beans", "price": 68000, "unit": "basin", "market": "Karenga", "lang": "lg"}}
+{"text": "maharagge 82k kwa debe Sooroti", "expect": {"crop": "beans", "price": 82000, "unit": "tin", "market": "Soroti", "lang": "sw"}}
+{"text": "bei ya mahindi sokoni karita ni ngapi", "expect": {"crop": "maize", "price": null, "unit": null, "market": "Karita", "lang": "sw"}}
+{"text": "price of corn in Iganga", "expect": {"crop": "maize", "price": null, "unit": null, "market": "Iganga", "lang": "en"}}
+{"text": "bei ya mahindi masaka ni 950/- kwa kilo", "expect": {"crop": "maize", "price": 950, "unit": "kg", "market": "Masaka", "lang": "sw"}}
+{"text": "mahinid 20000 kwa debe Makaratin", "expect": {"crop": "maize", "price": 20000, "unit": "tin", "market": "Makaratin", "lang": "sw"}}
+{"text": "Lira maharage shs. 443000 gunia", "expect": {"crop": "beans", "price": 443000, "unit": "bag", "market": "Lira", "lang": "sw"}}
+{"text": "mnunuzi anataka mahindi 12,000 kwa beseni soko la busia", "expect": {"crop": "maize", "price": 12000, "unit": "basin", "market": "Busia", "lang": "sw"}}
+{"text": "beans ugx 3900 kg soroti", "expect": {"crop": "beans", "price": 3900, "unit": "kg", "market": "Soroti", "lang": "en"}}
+{"text": "price of corn in busia", "expect": {"crop": "maize", "price": null, "unit": null, "market": "Busia", "lang": "en"}}
+{"text": "kasooli 20000 buli debe mu masakka", "expect": {"crop": "maize", "price": 20000, "unit": "tin", "market": "Masaka", "lang": "lg"}}
+{"text": "corn 1500/= kg mukono", "expect": {"crop": "maize", "price": 1500, "unit": "kg", "market": "Mukono", "lang": "en"}}
+{"text": "beans 3450 kg Mbale", "expect": {"crop": "beans", "price": 3450, "unit": "kg", "market": "Mbale", "lang": "en"}}
+{"text": "maize ugx 140000 bag kaabong", "expect": {"crop": "maize", "price": 140000, "unit": "bag", "market": "Kaabong", "lang": "en"}}
+{"text": "mnunuzi anataka mahinddi 89,000 kwa gunia soko la hoima", "expect": {"crop": "maize", "price": 89000, "unit": "bag", "market": "Hoima", "lang": "sw"}}
+{"text": "mbale mahindi 29000/= debe", "expect": {"crop": "maize", "price": 29000, "unit": "tin", "market": "Mbale", "lang": "sw"}}
