@@ -18,18 +18,23 @@ Each script is about 55 seconds of voice-over at a calm pace (2.4 words per seco
 
 Links for both forms: demo https://smallai-agri.vercel.app · repo https://github.com/omarcontreras96/smallai-agri
 
-## Before recording
-1. `git pull` and `uv sync` on `main`.
-2. Fresh state, then seed the labelled synthetic farmer offers **before** recording, so the dashboard already has data:
+## Before recording (Pepe's PC: Africa's Talking is set up there)
+1. Latest code and a fresh state, with the labelled synthetic farmer offers seeded **before** recording, so the dashboard already has data:
    ```bash
-   rm -f data/service.db
-   uv run python -m service.seed_demo
+   git pull && uv sync
+   rm -f data/service.db && uv run python -m service.seed_demo
    uv run uvicorn service.main:app
    ```
-3. Browser at 125% zoom, two tabs: `http://localhost:8000/inbox?phone=%2B256700000001` (Noor's phone) and `http://localhost:8000/coop`.
-4. **Wi-Fi off** for the Demo clip, with the icon visible in the menu bar.
+   Being on the latest `main` matters: the bands and the example markets changed tonight, and the captions below assume them.
+2. The SMS path, with **internet on**:
+   - start the tunnel: `cloudflared tunnel --url http://localhost:8000`;
+   - in the Africa's Talking sandbox, set the shortcode's incoming-SMS callback to the tunnel address plus `/sms` (the address changes on every tunnel restart);
+   - check `http://localhost:8000/health` shows `"sms_out": true`;
+   - open the Africa's Talking phone simulator with a test number. This is Noor's phone.
+3. Browser at 125% zoom, two more tabs: `http://localhost:8000/inbox?phone=%2B256700000002` (the offline shot) and `http://localhost:8000/coop`.
+4. Rehearse once, then **reset** (step 1) so the recording starts clean. Don't send anything else from the simulator number between the rehearsal and the take.
 5. Three still frames ready (see "Still frames" at the end).
-6. Recording: macOS `Cmd+Shift+5` (screen + microphone), or record the screen and the voice separately. Paste messages instead of typing them, or speed up the typing 2× in the edit. Add captions for the Swahili replies.
+6. Recording: macOS `Cmd+Shift+5` (screen + microphone), or record the screen and the voice separately. Paste messages instead of typing them, and **cut the few seconds of waiting** for each SMS reply in the edit. Add captions for the Swahili replies.
 
 ---
 
@@ -39,12 +44,12 @@ Form fields: portal "Product demo", Google Form "Demo video".
 | Time | On screen | Voice-over |
 |---|---|---|
 | 0:00–0:08 | **Frame A**: the problem sentence, Noor | "At harvest, a buyer names a price for Noor's maize. She has no way to check it. Now she can, before she agrees." |
-| 0:08–0:30 | Inbox: paste `mahindi 20000 beseni arua` → reply asks the basin size → send `1` → verdict (captions below) | "At the moment of sale she texts the offer in Swahili from a basic phone. It asks her basin size, converts to a price per kilo, and checks this month's market band. Low: ask for thirty thousand five hundred. Prices are falling. She decides." |
-| 0:30–0:40 | Paste `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "When the data is too old, the market unknown or the message unclear, it says: not sure, ask your co-op. It never guesses." |
-| 0:40–0:48 | Point at the Wi-Fi icon (off), scroll to the inbox footer with file sizes | "All of this runs offline, on a laptop at the co-op. The price bands are a twenty-one kilobyte file." |
+| 0:08–0:28 | Africa's Talking simulator (Noor's phone): send `mahindi 20000 beseni arua` → SMS asks the basin size → send `1` → verdict SMS (captions below) | "At the moment of sale she texts the offer in Swahili from a basic phone. It asks her basin size, converts to a price per kilo, and checks this month's market band. Low: ask for thirty thousand five hundred. Prices are falling. She decides." |
+| 0:28–0:37 | Simulator: send `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "Data too old, market unknown, message unclear? It says: not sure, ask your co-op. It never guesses." |
+| 0:37–0:48 | **Turn Wi-Fi off** on camera. Inbox tab: paste `beans 4000 kg jinja` → FAIR reply appears at once; scroll to the footer with the file sizes | "Internet off: the co-op laptop still answers. In the field it needs an SMS line, not the internet. The price bands are a twenty-one kilobyte file." |
 | 0:48–0:58 | `/coop` tab: tiles, then the red dots and the Mbale row | "Every report feeds the co-op dashboard: bands refreshed by farmers' reports, and buyers paying below the band flagged in red." |
 
-Voice-over: 129 words, about 54 s at a calm pace.
+Voice-over: 130 words, about 54 s at a calm pace.
 
 Replies on screen, with captions:
 ```
@@ -61,6 +66,16 @@ Bei ya rejareja mjini, si ya shambani. Uamuzi ni wako.
 *Maize, Arua: 20,000 per 15 kg basin = 1,330/kg. Market price this month: 1,590–2,590/kg. The offer is LOW (~34% below average). Ask for 30,500 per basin. Next 2 months: prices falling. Town retail price, not farm-gate. Your decision.*
 ```
 Not sure: last Wakiso market data is 18 months old. Ask your co-op or extension officer.
+```
+The verdict is 231 characters, so it arrives as **two SMS parts**; the simulator may show them as one message or two. Either is fine; the captions cover the whole text.
+
+Offline shot (local inbox, Wi-Fi off):
+```
+Beans Jinja: 4,000/kg.
+Market price this month: 3,740-4,920/kg.
+Offer is FAIR. You can ask 4,250 per kg.
+Next 2 months: prices steady.
+Town retail price, not farm-gate. You decide.
 ```
 Dashboard tiles (maize tab), as seeded: 23 offers logged, 22 farmers reporting, 7 markets with reports, 5 bands updated by reports, 3 offers below P10.
 
@@ -125,8 +140,10 @@ Frames A and B are HTML in `docs/slides/frames/`. To change the text, edit the H
 
 ## If a take breaks
 - **Wrong state:** stop the server, `rm -f data/service.db`, seed, start again.
-- **A reply differs from this script:** the database wasn't fresh, or `models/bands.json` changed. Re-run from step 2 of "Before recording".
+- **A reply differs from this script:** the database wasn't fresh, or `models/bands.json` changed. Re-run step 1 of "Before recording".
+- **No SMS reply in the simulator:** check `/health` shows `"sms_out": true`, and that the sandbox callback matches the *current* tunnel address plus `/sms`. If it still fails, record 0:08–0:37 on the local inbox instead (same messages, same replies) and keep the Wi-Fi-off shot.
 - **The laptop run fails:** record on https://smallai-agri.vercel.app instead. The examples are on its front page. In that case, drop the Wi-Fi-off line.
+- **Backup machine:** Omar's laptop can run the local parts (inbox, Wi-Fi off, dashboard) with the same commands. It has no Africa's Talking keys.
 
 ## Facts said on camera, and where they come from
 | Claim | Source |
