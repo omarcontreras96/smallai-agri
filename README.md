@@ -1,6 +1,8 @@
-# Price SMS: is this offer fair?
+<img src="docs/slides/logo/sourcespot-mark.svg" alt="SourceSpot logo" width="88">
 
-An SMS price check for smallholder maize and bean sellers in Uganda, built for the World Bank "Small AI for Development" challenge (Hack-Nation 7, Annex B Agriculture).
+# SourceSpot: is this offer fair?
+
+**SourceSpot** is an SMS price check for smallholder maize and bean sellers in Uganda, built for the World Bank "Small AI for Development" challenge (Hack-Nation 7, Annex B Agriculture).
 
 **Live demo:** https://smallai-agri.vercel.app (phone simulator + co-op dashboard) · **Evidence:** [docs/EVIDENCE.md](docs/EVIDENCE.md) · **Video:** _added with the submission_
 
