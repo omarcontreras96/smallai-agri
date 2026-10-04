@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="SourceSpot">
+  <title>SourceSpot (two-tone)</title>
+  <!-- Alternative: the farmer's S in green, the buyer's S in amber. The amber S passes over a gap
+       stroke in the background colour (#f4ecdf); change it to match the surface. -->
+  <defs>
+    <path id="s" d="M 150 30 C 116 14, 34 24, 30 66 C 27 98, 70 104, 110 104 C 146 104, 162 116, 161 136 C 160 158, 138 166, 116 164 C 98 162, 84 156, 74 148"/>
+  </defs>
+  <g fill="none" stroke-linecap="round">
+    <use href="#s" stroke="#1e9e80" stroke-width="14"/>
+    <use href="#s" transform="rotate(180 120 120)" stroke="#f4ecdf" stroke-width="22"/>
+    <use href="#s" transform="rotate(180 120 120)" stroke="#e08a2e" stroke-width="14"/>
+  </g>
+</svg>

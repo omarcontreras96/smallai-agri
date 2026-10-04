@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="SourceSpot">
+  <title>SourceSpot</title>
+  <!-- Two S strokes, the second turned 180 degrees: S for SourceSpot, and the strokes of a price sign.
+       Each S draws half of the loop in the middle, so the shared centre reads as a third S:
+       the fair part that farmer and buyer each bring to the deal. -->
+  <defs>
+    <path id="s" d="M 150 30 C 116 14, 34 24, 30 66 C 27 98, 70 104, 110 104 C 146 104, 162 116, 161 136 C 160 158, 138 166, 116 164 C 98 162, 84 156, 74 148"/>
+  </defs>
+  <g fill="none" stroke="#1e9e80" stroke-width="14" stroke-linecap="round">
+    <use href="#s"/>
+    <use href="#s" transform="rotate(180 120 120)"/>
+  </g>
+</svg>

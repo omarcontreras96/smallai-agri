@@ -46,8 +46,9 @@ Story: a buyer lowballs Noor, SourceSpot shows what it can do (three English mes
 
 | Time | On screen | Voice-over |
 |---|---|---|
-| 0:00–0:07 | **Scene 1, video, labelled "Dramatization".** Gulu market. A buyer weighs Noor's maize and names his price: *"Eleven hundred a kilo. Take it or leave it."* Noor hesitates; close-up of her basic phone. | "Small farmers sell alone, with no price to check. A buyer offers Noor eleven hundred a kilo." |
-| 0:07–0:09 | **Title card (Frame D):** SourceSpot. *Is this offer fair? Ask by SMS.* | "This is SourceSpot." |
+| 0:00–0:06 | **Scene 1, video, labelled "Dramatization".** Gulu market. A buyer weighs Noor's maize and names his price: *"Eleven hundred a kilo. Take it or leave it."* Noor hesitates; close-up of her basic phone. | "Small farmers sell alone, with no price to check. A buyer offers Noor eleven hundred a kilo." |
+| 0:06–0:07.5 | **Frame D:** *Is this offer fair?* (`docs/slides/frame_d_question.png`) | "Is it fair?" |
+| 0:07.5–0:09 | **Frame E:** *This is SourceSpot* + logo (`docs/slides/frame_e_sourcespot.png`) | "This is SourceSpot." |
 | 0:09–0:22 | **English 1**, Africa's Talking simulator: send `A buyer in Arua is offering me 20,000 shillings for a basin of maize. Is that fair?` → size question → send `1` → LOW verdict | "Farmers text the offer in their own words. It asks the basin size, converts to a price per kilo and checks this month's market band: low, ask thirty thousand five hundred." |
 | 0:22–0:27 | **English 2:** send `What is the price of beans in Lira?` → band | "They can check a market before selling." |
 | 0:27–0:33 | **English 3:** send `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "When the data is too old, it never guesses: not sure, ask your co-op." |
@@ -153,11 +154,12 @@ Three 1920×1080 images, used inside the clips. This is not a slide deck.
 | Frame | File | Used in |
 |---|---|---|
 | A, the problem | `docs/slides/frame_a_problem.png` | Combined cut, before the Demo clip |
-| D, title card: SourceSpot | to make | Demo 0:08–0:11 |
+| D, the question | `docs/slides/frame_d_question.png` | Demo 0:06–0:07.5 |
+| E, This is SourceSpot + logo | `docs/slides/frame_e_sourcespot.png` (logo: `docs/slides/logo/sourcespot-mark.svg`) | Demo 0:07.5–0:09 |
 | B, Noor's day + stack | `docs/slides/frame_b_stack.png` | Tech 0:00–0:15 |
 | C, backtest | `docs/slides/backtest.png` | Tech 0:15–0:33 |
 
-Frames A and B are HTML in `docs/slides/frames/`. To change the text, edit the HTML and re-render with `bash docs/slides/frames/render.sh` (headless Chrome, throwaway profile). Contents:
+Frames A, B, D and E are HTML in `docs/slides/frames/` (D and E use `frame_warm.css`; `render.sh` also works on Windows with Edge). To change the text, edit the HTML and re-render with `bash docs/slides/frames/render.sh` (headless Chrome, throwaway profile). Contents:
 
 - **Frame A (combined cut).** The problem sentence:
   > Because of this tool, a smallholder farmer like Noor will know the fair price band for her maize or beans *before* she accepts a buyer's offer, which she would otherwise do blind; we know because the Côte d'Ivoire E-Agriculture project ($70M, P160418) broadcast prices to 400K farmers and never measured whether anyone received a better price.
