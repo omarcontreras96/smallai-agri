@@ -19,7 +19,7 @@ Each script is about 55 seconds of voice-over at a calm pace (2.4 words per seco
 Links for both forms: demo https://smallai-agri.vercel.app · repo https://github.com/omarcontreras96/smallai-agri
 
 ## Before recording (Pepe's PC: Africa's Talking is set up there)
-1. Latest code and a fresh state. **Demo clip: empty database, no seeding** (the replies below were produced that way; the dashboard isn't in the Demo clip):
+1. Latest code and a fresh state. **Demo clip: empty database, no seeding** (the replies below were produced that way; the 200 synthetic offers are streamed in on camera, see the dashboard shot):
    ```bash
    git pull && uv sync
    rm -f data/service.db
@@ -46,15 +46,25 @@ Story: a buyer lowballs Noor, SourceSpot shows what it can do (three English mes
 
 | Time | On screen | Voice-over |
 |---|---|---|
-| 0:00–0:08 | **Scene 1, video, labelled "Dramatization".** Gulu market. A buyer weighs Noor's maize and names his price: *"Eleven hundred a kilo. Take it or leave it."* Noor hesitates; close-up of her basic phone. | "Small farmers sell alone, with no price to check. A buyer offers Noor eleven hundred shillings a kilo. Is that fair?" |
-| 0:08–0:11 | **Title card (Frame D):** SourceSpot. *Is this offer fair? Ask by SMS.* | "This is SourceSpot." |
-| 0:11–0:25 | **English 1**, Africa's Talking simulator: send `A buyer in Arua is offering me 20,000 shillings for a basin of maize. Is that fair?` → size question → send `1` → LOW verdict | "Farmers text the offer in their own words. SourceSpot asks the basin size, converts it to a price per kilo, and checks this month's market band. Low: ask for thirty thousand five hundred." |
-| 0:25–0:31 | **English 2:** send `What is the price of beans in Lira?` → band | "They can check a market before going to sell." |
-| 0:31–0:39 | **English 3:** send `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "And when the data is too old, it never guesses. It says: not sure, ask your co-op." |
-| 0:39–0:51 | **Swahili 1 and 2**, English captions: send `mahindi 1100 kwa kilo gulu` → CHINI, ask 1,750; then `mahindi 1800 kwa kilo gulu` → SAWA | "Built for Noor, in her language. Eleven hundred: low, ask for seventeen-fifty. The buyer comes back with eighteen hundred: fair." |
-| 0:51–0:59 | **Scene 2, video, labelled "Dramatization".** Same market. Noor shows the buyer her phone and counters; he agrees; handshake; she counts the money. | "Noor sells at eighteen hundred, sixty-four percent more, using the phone she already has. She decides." |
+| 0:00–0:07 | **Scene 1, video, labelled "Dramatization".** Gulu market. A buyer weighs Noor's maize and names his price: *"Eleven hundred a kilo. Take it or leave it."* Noor hesitates; close-up of her basic phone. | "Small farmers sell alone, with no price to check. A buyer offers Noor eleven hundred a kilo." |
+| 0:07–0:09 | **Title card (Frame D):** SourceSpot. *Is this offer fair? Ask by SMS.* | "This is SourceSpot." |
+| 0:09–0:22 | **English 1**, Africa's Talking simulator: send `A buyer in Arua is offering me 20,000 shillings for a basin of maize. Is that fair?` → size question → send `1` → LOW verdict | "Farmers text the offer in their own words. It asks the basin size, converts to a price per kilo and checks this month's market band: low, ask thirty thousand five hundred." |
+| 0:22–0:27 | **English 2:** send `What is the price of beans in Lira?` → band | "They can check a market before selling." |
+| 0:27–0:33 | **English 3:** send `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "When the data is too old, it never guesses: not sure, ask your co-op." |
+| 0:33–0:42 | **Swahili 1 and 2**, English captions: send `mahindi 1100 kwa kilo gulu` → CHINI, ask 1,750; then `mahindi 1800 kwa kilo gulu` → SAWA | "Built for Noor, in Swahili. Eleven hundred: low, ask seventeen-fifty. The buyer offers eighteen hundred: fair." |
+| 0:42–0:51 | **Dashboard** `/coop?crop=maize&refresh=2`: first only these messages (4 offers, 1 farmer, Noor's 1,100 in Gulu flagged red). Then 200 synthetic reports stream in (speed up 2–3× in the edit): tiles climb, dots and blue "after reports" bands fill the markets. On-screen label: *"Simulated: 200 synthetic farmer reports"*. | "Every offer reaches the co-op, and Noor's lowball is flagged. With two hundred simulated reports, each market's band updates from what farmers are offered." |
+| 0:51–0:59 | **Scene 2, video, labelled "Dramatization".** Same market. Noor shows the buyer her phone and counters; he agrees; handshake; she counts the money. | "Noor sells at eighteen hundred, sixty-four percent more, on the phone she already has. She decides." |
 
-Voice-over: about 125 words, about 52 s at a calm pace. Paste the messages, and cut the SMS waits in the edit.
+Voice-over: about 130 words, about 54 s at a calm pace. Paste the messages, and cut the SMS waits in the edit.
+
+**Dashboard shot (0:42–0:51):**
+1. Before the take, open `http://localhost:8000/coop?crop=maize&refresh=2` in a second browser window (reloads every 2 s), and a terminal in the repo with this command typed but not run:
+   ```bash
+   uv run python -m service.seed_demo --n 200 --seconds 15
+   ```
+2. After Swahili 2, switch to the dashboard. Hold 2–3 s on the "only Noor's messages" state: 4 offers logged, 1 farmer reporting, 3 markets, 1 offer below P10 (Gulu row, red dot).
+3. Run the command. In ~15 s the maize tab climbs to about 104 offers, 101 farmers, 26 markets, 20 bands updated, 15 below P10 (the other ~96 offers are beans). The dashboard header says "Includes synthetic demo offers".
+4. After the take: `uv run python -m service.seed_demo --reset` removes only the synthetic offers.
 
 Replies on screen (real output, empty database, this order), with captions for Swahili:
 
@@ -101,7 +111,7 @@ Bei ya rejareja mjini, si ya shambani. Uamuzi ni wako.
 
 Verdicts are 167–218 characters, so they arrive as **two SMS parts**; the simulator may show one bubble or two. The captions cover the whole text.
 
-**Moved out of the Demo clip (to place in the Tech clip):** the Wi-Fi-off shot (core works offline: `beans 4000 kg jinja` in the local inbox answers FAIR, ask 4,250) and the `/coop` dashboard.
+**Moved out of the Demo clip (to place in the Tech clip):** the Wi-Fi-off shot (core works offline: `beans 4000 kg jinja` in the local inbox answers FAIR, ask 4,250).
 
 ---
 
@@ -181,3 +191,4 @@ Frames A and B are HTML in `docs/slides/frames/`. To change the text, edit the H
 | Rebuild in 30 s | `model/train.py` full run |
 | 400K farmers, $70M, P160418 | team's problem statement (`docs/CONCEPT.md`) |
 | Noor sells for 64% more | Demo story: 1,800 vs 1,100 UGX/kg (dramatization; both replies are real tool output) |
+| 200 simulated reports | `service.seed_demo --n 200` (synthetic, tagged `demo` on the dashboard; requires #18) |
