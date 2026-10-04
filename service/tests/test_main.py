@@ -46,3 +46,15 @@ def test_sms_sends_reply_via_africas_talking_when_configured(client, monkeypatch
     monkeypatch.setattr(sms_out, "send", lambda phone, text, to=None: sent.append((phone, text, to)))
     r = client.post("/sms", data={"from": "+256700000042", "text": "habari", "to": "6000"})
     assert sent == [("+256700000042", r.text, "6000")]
+
+
+def test_coop_dashboard_shows_offers_and_flags(client):
+    from service import seed_demo
+    from service.main import app
+    assert seed_demo.seed(app.state.db, app.state.bands) > 20
+    page = client.get("/coop", params={"crop": "maize"}).text
+    assert "Gulu" in page and "below P10" in page and "demo" in page
+    assert "Band after farmer reports" in page and "<circle" in page
+    assert client.get("/coop", params={"crop": "beans"}).status_code == 200
+    seed_demo.reset(app.state.db)
+    assert "No offers yet" in client.get("/coop").text
