@@ -29,3 +29,4 @@ data/raw/*
 
 # local service state
 data/*.db
+.vercel

@@ -22,3 +22,7 @@ dev = ["pytest>=8", "matplotlib>=3.9"]
 
 [tool.pytest.ini_options]
 testpaths = ["service/tests", "model/tests"]
+
+# Public judge demo on Vercel: same app + /tmp SQLite + seeded demo offers + landing page
+[tool.vercel]
+entrypoint = "service.vercel_app:app"

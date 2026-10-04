@@ -60,6 +60,7 @@ def inbox(request: Request, phone: str = DEFAULT_PHONE):
         "bands_file": app.state.bands_path.name,
         "generated_at": app.state.bands.get("generated_at"),
         "model_files": model_files,
+        "public_demo": getattr(app.state, "public_demo", False),
     })
 
 

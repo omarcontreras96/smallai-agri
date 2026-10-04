@@ -1,0 +1,10 @@
+# Only what the SMS service needs goes to Vercel. Never upload local secrets or state.
+.env*
+.venv
+.git
+**/__pycache__
+data/raw
+data/*.db
+service/tests
+model/tests
+docs
