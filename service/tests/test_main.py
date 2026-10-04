@@ -58,3 +58,53 @@ def test_coop_dashboard_shows_offers_and_flags(client):
     assert client.get("/coop", params={"crop": "beans"}).status_code == 200
     seed_demo.reset(app.state.db)
     assert "No offers yet" in client.get("/coop").text
+
+
+def test_sms_checkpoint_exchanges(client):
+    """The three Africa's Talking checkpoint exchanges, as AT posts them (from, text, to)."""
+    sms = lambda phone, text: client.post("/sms", data={"from": phone, "text": text, "to": "6000"}).text
+
+    # a) Swahili + clarifying question, two messages from the same phone
+    assert sms("+256700000011", "mahindi 15000 beseni gulu").startswith("Beseni ni kilo ngapi?")
+    out = sms("+256700000011", "1")
+    assert out.startswith("Mahindi Gulu: 15,000/beseni (15kg) = 1,000/kg.") and "Ofa ni" in out
+
+    # b) English, no question
+    out = sms("+256700000012", "beans 3000 kg mbale")
+    assert out.startswith("Beans Mbale: 3,000/kg.") and "Offer is" in out
+
+    # c) fail-safe: market not on the list
+    out = sms("+256700000013", "mahindi 1200 kilo kitgum")
+    assert out.startswith("Sijui kwa uhakika") and out.endswith("Uliza chama au afisa kilimo.")
+
+    # offers land on /coop under a hashed phone, not demo-
+    page = client.get("/coop", params={"crop": "beans"}).text
+    assert "Mbale" in page and "demo" not in page.split("Recent offers")[1]
+
+
+def test_sms_out_retries_connection_errors_only(monkeypatch):
+    from requests.exceptions import ConnectionError
+    from service import sms_out
+    calls = []
+
+    class Flaky:
+        def send(self, text, to, sender_id=None):
+            calls.append(text)
+            if len(calls) == 1:
+                raise ConnectionError("SSL: WRONG_VERSION_NUMBER")
+            return {"SMSMessageData": {"Message": "Sent to 1/1"}}
+
+    monkeypatch.setattr(sms_out, "_client", lambda: Flaky())
+    monkeypatch.setattr(sms_out.time, "sleep", lambda s: None)
+    sms_out.send("+256700000001", "hi")
+    assert calls == ["hi", "hi"]
+
+    class Rejects:
+        def send(self, text, to, sender_id=None):
+            calls.append(text)
+            raise ValueError("Invalid phone number")
+
+    calls.clear()
+    monkeypatch.setattr(sms_out, "_client", lambda: Rejects())
+    sms_out.send("+256700000001", "hi")
+    assert calls == ["hi"]
