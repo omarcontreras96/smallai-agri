@@ -47,13 +47,15 @@ PAGE = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Price SMS demo</title>
+<title>SourceSpot demo</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20240%20240%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%231e9e80%22%20stroke-width%3D%2218%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M%20150%2030%20C%20116%2014%2C%2034%2024%2C%2030%2066%20C%2027%2098%2C%2070%20104%2C%20110%20104%20C%20146%20104%2C%20162%20116%2C%20161%20136%20C%20160%20158%2C%20138%20166%2C%20116%20164%20C%2098%20162%2C%2084%20156%2C%2074%20148%22/%3E%3Cpath%20d%3D%22M%20150%2030%20C%20116%2014%2C%2034%2024%2C%2030%2066%20C%2027%2098%2C%2070%20104%2C%20110%20104%20C%20146%20104%2C%20162%20116%2C%20161%20136%20C%20160%20158%2C%20138%20166%2C%20116%20164%20C%2098%20162%2C%2084%20156%2C%2074%20148%22%20transform%3D%22rotate%28180%20120%20120%29%22/%3E%3C/g%3E%3C/svg%3E">
 <style>
-  :root { --bg: #eef1ec; --card: #fff; --ink: #1d2a1d; --muted: #5b665b; --accent: #2f6b2f; --line: #d9ded6; }
+  :root { --bg: #eef1ec; --card: #fff; --ink: #1d2a1d; --muted: #5b665b; --accent: #177a63; --line: #d9ded6; }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
   main { max-width: 680px; margin: 0 auto; padding: 32px 16px 48px; }
-  h1 { font-size: 26px; line-height: 1.2; margin: 0 0 8px; }
+  h1 { font-size: 26px; line-height: 1.2; margin: 0 0 8px; display: flex; align-items: center; gap: 12px; }
+  h1 .mark { width: 40px; height: 40px; flex: none; }
   h2 { font-size: 18px; margin: 28px 0 8px; }
   p { margin: 0 0 12px; }
   .lede { color: var(--muted); }
@@ -74,7 +76,7 @@ PAGE = """<!doctype html>
 </head>
 <body>
 <main>
-  <h1>Price SMS: is this offer fair?</h1>
+  <h1><svg class="mark" viewBox="0 0 240 240" aria-hidden="true"><defs><path id="ss" d="M 150 30 C 116 14, 34 24, 30 66 C 27 98, 70 104, 110 104 C 146 104, 162 116, 161 136 C 160 158, 138 166, 116 164 C 98 162, 84 156, 74 148"/></defs><g fill="none" stroke="#1e9e80" stroke-width="16" stroke-linecap="round"><use href="#ss"/><use href="#ss" transform="rotate(180 120 120)"/></g></svg><span>SourceSpot: is this offer fair?</span></h1>
   <p class="lede">At harvest a buyer names a price and a smallholder in Uganda has no independent reference.
   She texts the offer; the service replies with this month's market band for maize or beans,
   a verdict (LOW / FAIR / GOOD), what to ask for, and the price direction. When the data cannot support

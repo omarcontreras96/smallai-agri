@@ -6,8 +6,8 @@
   --ink-2: #52514e;
   --muted: #898781;
   --line: #e1e0d9;
-  --accent: #2a78d6;
-  --accent-wash: #e8f1fc;
+  --accent: #1e9e80;   /* SourceSpot green */
+  --accent-wash: #e6f3ef;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 1920px; height: 1080px; }
@@ -20,4 +20,6 @@ body {
   flex-direction: column;
 }
 .eyebrow { font-size: 24px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand img { width: 44px; height: 44px; flex: none; }
 .foot { margin-top: auto; font-size: 24px; color: var(--muted); }

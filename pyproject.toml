@@ -1,7 +1,7 @@
 [project]
 name = "smallai-agri"
 version = "0.1.0"
-description = "SMS price-band assistant for smallholder maize and bean sellers in Uganda (Hack-Nation 7 x World Bank)"
+description = "SourceSpot: SMS price-band assistant for smallholder maize and bean sellers in Uganda (Hack-Nation 7 x World Bank)"
 requires-python = ">=3.12"
 dependencies = [
   "fastapi>=0.115",
