@@ -46,17 +46,19 @@ Story: a buyer lowballs Noor, SourceSpot shows what it can do (three English mes
 
 | Time | On screen | Voice-over |
 |---|---|---|
-| 0:00–0:06 | **Scene 1, video, labelled "Dramatization".** Gulu market. A buyer weighs Noor's maize and names his price: *"Eleven hundred a kilo. Take it or leave it."* Noor hesitates; close-up of her basic phone. | "Small farmers sell alone, with no price to check. A buyer offers Noor eleven hundred a kilo." |
-| 0:06–0:07.5 | **Frame D:** *Is this offer fair?* (`docs/slides/frame_d_question.png`) | "Is it fair?" |
-| 0:07.5–0:09 | **Frame E:** *This is SourceSpot* + logo (`docs/slides/frame_e_sourcespot.png`) | "This is SourceSpot." |
-| 0:09–0:22 | **English 1**, Africa's Talking simulator: send `A buyer in Arua is offering me 20,000 shillings for a basin of maize. Is that fair?` → size question → send `1` → LOW verdict | "Farmers text the offer in their own words. It asks the basin size, converts to a price per kilo and checks this month's market band: low, ask thirty thousand five hundred." |
-| 0:22–0:27 | **English 2:** send `What is the price of beans in Lira?` → band | "They can check a market before selling." |
-| 0:27–0:33 | **English 3:** send `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "When the data is too old, it never guesses: not sure, ask your co-op." |
-| 0:33–0:42 | **Swahili 1 and 2**, English captions: send `mahindi 1100 kwa kilo gulu` → CHINI, ask 1,750; then `mahindi 1800 kwa kilo gulu` → SAWA | "Built for Noor, in Swahili. Eleven hundred: low, ask seventeen-fifty. The buyer offers eighteen hundred: fair." |
-| 0:42–0:51 | **Dashboard** `/coop?crop=maize&refresh=2`: first only these messages (4 offers, 1 farmer, Noor's 1,100 in Gulu flagged red). Then 200 synthetic reports stream in (speed up 2–3× in the edit): tiles climb, dots and blue "after reports" bands fill the markets. On-screen label: *"Simulated: 200 synthetic farmer reports"*. | "Every offer reaches the co-op, and Noor's lowball is flagged. With two hundred simulated reports, each market's band updates from what farmers are offered." |
-| 0:51–0:59 | **Scene 2, video, labelled "Dramatization".** Same market. Noor shows the buyer her phone and counters; he agrees; handshake; she counts the money. | "Noor sells at eighteen hundred, sixty-four percent more, on the phone she already has. She decides." |
+| 0:00–0:09 | **Scene 1, video, labelled "Dramatization".** Gulu market. A buyer weighs Noor's maize and names his price: *"Eleven hundred a kilo. Take it or leave it."* Noor hesitates; close-up of her basic phone. | "This is Noor, a smallholder maize farmer in Uganda. A buyer offers her eleven hundred shillings a kilo, and she has no price to check it against." |
+| 0:09–0:10 | **Frame D:** *Is this offer fair?* (`docs/slides/frame_d_question.png`) | "Is it fair?" |
+| 0:10–0:11 | **Frame F:** *No* (`docs/slides/frame_f_no.png`) | "No." |
+| 0:11–0:13 | **Frame E:** *This is SourceSpot* + logo (`docs/slides/frame_e_sourcespot.png`) | "That's why we built SourceSpot." |
+| 0:13–0:24 | **English 1**, Africa's Talking simulator: send `A buyer in Arua is offering me 20,000 shillings for a basin of maize. Is that fair?` → size question → send `1` → LOW verdict | "Farmers text the offer in their own words. It asks the basin size, converts to a price per kilo and checks this month's market band: low, ask for thirty thousand five hundred." |
+| 0:24–0:27 | **English 2:** send `What is the price of beans in Lira?` → band | "They can check a market before selling." |
+| 0:27–0:32 | **English 3:** send `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "When the data is too old, it never guesses: not sure, ask your co-op." |
+| 0:32–0:38 | **Swahili 1 and 2**, English captions: send `mahindi 1100 kwa kilo gulu` → CHINI, ask 1,750; then `mahindi 1800 kwa kilo gulu` → SAWA | "And it's built for Noor: she can use it in her own language, Swahili." |
+| 0:38–0:47 | **Dashboard** `/coop?crop=maize&refresh=2`: first only these messages (4 offers, 1 farmer, Noor's 1,100 in Gulu flagged red). Then 200 synthetic reports stream in (speed up 2–3× in the edit): tiles climb, dots and blue "after reports" bands fill the markets. On-screen label: *"Simulated: 200 synthetic farmer reports"*. | "Every offer also reaches her co-op's dashboard. With two hundred simulated reports, each market's price band updates from what farmers are actually offered." |
+| 0:47–0:54 | **Scene 2, video, labelled "Dramatization".** Same market. Noor shows the buyer her phone and counters; he agrees; handshake; she counts the money. | "Now Noor can negotiate a better price, by SMS on the phone she already has. No internet needed. She decides." |
+| 0:54–0:59 | **Frame G:** logo, SourceSpot, tagline (`docs/slides/frame_g_end.png`) | "SourceSpot: AI crop-price predictions by SMS, empowering smallholder farmers across developing countries." |
 
-Voice-over: about 130 words, about 54 s at a calm pace. Paste the messages, and cut the SMS waits in the edit.
+Voice-over: about 150 words, about 59 s at a natural pace (~2.6 words/s), so there is almost no slack under 60 s. If the cut runs long, drop "They can check a market before selling." (~3 s). Record the voice first (Windows Sound Recorder), then fit the video to it in Clipchamp. Paste the messages, and cut the SMS waits in the edit.
 
 **Dashboard shot (0:42–0:51):**
 1. Before the take, open `http://localhost:8000/coop?crop=maize&refresh=2` in a second browser window (reloads every 2 s), and a terminal in the repo with this command typed but not run:
@@ -154,12 +156,14 @@ Three 1920×1080 images, used inside the clips. This is not a slide deck.
 | Frame | File | Used in |
 |---|---|---|
 | A, the problem | `docs/slides/frame_a_problem.png` | Combined cut, before the Demo clip |
-| D, the question | `docs/slides/frame_d_question.png` | Demo 0:06–0:07.5 |
-| E, This is SourceSpot + logo | `docs/slides/frame_e_sourcespot.png` (logo: `docs/slides/logo/sourcespot-mark.svg`) | Demo 0:07.5–0:09 |
+| D, the question | `docs/slides/frame_d_question.png` | Demo 0:09–0:10 |
+| E, This is SourceSpot + logo | `docs/slides/frame_e_sourcespot.png` (logo: `docs/slides/logo/sourcespot-mark.svg`) | Demo 0:11–0:13 |
+| F, No | `docs/slides/frame_f_no.png` | Demo 0:10–0:11 |
+| G, end card: logo, SourceSpot, tagline | `docs/slides/frame_g_end.png` | Demo 0:54–0:59 |
 | B, Noor's day + stack | `docs/slides/frame_b_stack.png` | Tech 0:00–0:15 |
 | C, backtest | `docs/slides/backtest.png` | Tech 0:15–0:33 |
 
-Frames A, B, D and E are HTML in `docs/slides/frames/` (D and E use `frame_warm.css`; `render.sh` also works on Windows with Edge). To change the text, edit the HTML and re-render with `bash docs/slides/frames/render.sh` (headless Chrome, throwaway profile). Contents:
+Frames A, B, D, E, F and G are HTML in `docs/slides/frames/` (D–G use `frame_warm.css`; `render.sh` also works on Windows with Edge). To change the text, edit the HTML and re-render with `bash docs/slides/frames/render.sh` (headless Chrome, throwaway profile). Contents:
 
 - **Frame A (combined cut).** The problem sentence:
   > Because of this tool, a smallholder farmer like Noor will know the fair price band for her maize or beans *before* she accepts a buyer's offer, which she would otherwise do blind; we know because the Côte d'Ivoire E-Agriculture project ($70M, P160418) broadcast prices to 400K farmers and never measured whether anyone received a better price.
@@ -192,5 +196,4 @@ Frames A, B, D and E are HTML in `docs/slides/frames/` (D and E use `frame_warm.
 | Reply in milliseconds | measured: median 2 ms, max 15 ms per reply on a laptop |
 | Rebuild in 30 s | `model/train.py` full run |
 | 400K farmers, $70M, P160418 | team's problem statement (`docs/CONCEPT.md`) |
-| Noor sells for 64% more | Demo story: 1,800 vs 1,100 UGX/kg (dramatization; both replies are real tool output) |
 | 200 simulated reports | `service.seed_demo --n 200` (synthetic, tagged `demo` on the dashboard; requires #18) |
