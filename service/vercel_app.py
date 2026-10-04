@@ -32,10 +32,11 @@ def seed_once() -> None:
 
 seed_once()
 
+# Verdict examples use markets without seeded demo offers, so the answer reflects the model band.
 EXAMPLES = [
-    ("mahindi 20000 beseni gulu", "Swahili. Asks the basin size; reply <code>1</code> for the verdict."),
-    ("beans 4000 kg mbale", "English, price per kg."),
-    ("kasooli 1500 kilo gulu", "Luganda word for maize. Understood; the reply is in Swahili."),
+    ("mahindi 20000 beseni arua", "Swahili. Asks the basin size; reply <code>1</code> for the verdict."),
+    ("beans 4000 kg jinja", "English, price per kg."),
+    ("kasooli 1500 kilo arua", "Luganda word for maize. Understood; the reply is in Swahili."),
     ("maize 1200 kg wakiso", "Last market data is 18 months old: \"not sure, ask your co-op\"."),
     ("mahindi 1000 kilo kitgum", "Market not covered: \"not sure\", never a guess."),
 ]
