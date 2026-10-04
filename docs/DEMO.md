@@ -99,7 +99,15 @@ Voice-over: 91 words before the three bracketed lines; with them filled in (unde
 ---
 
 ## Still frames
-Three images, used inside the clips. This is not a slide deck.
+Three 1920×1080 images, used inside the clips. This is not a slide deck.
+
+| Frame | File | Used in |
+|---|---|---|
+| A, the problem | `docs/slides/frame_a_problem.png` | Demo 0:00–0:08 |
+| B, Noor's day + stack | `docs/slides/frame_b_stack.png` | Tech 0:00–0:15 |
+| C, backtest | `docs/slides/backtest.png` | Tech 0:15–0:33 |
+
+Frames A and B are HTML in `docs/slides/frames/`. To change the text, edit the HTML and re-render with `bash docs/slides/frames/render.sh` (headless Chrome, throwaway profile). Contents:
 
 - **Frame A (Demo, 0:00).** The problem sentence:
   > Because of this tool, a smallholder farmer like Noor will know the fair price band for her maize or beans *before* she accepts a buyer's offer, which she would otherwise do blind; we know because the Côte d'Ivoire E-Agriculture project ($70M, P160418) broadcast prices to 400K farmers and never measured whether anyone received a better price.
