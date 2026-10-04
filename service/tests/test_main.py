@@ -108,3 +108,14 @@ def test_sms_out_retries_connection_errors_only(monkeypatch):
     monkeypatch.setattr(sms_out, "_client", lambda: Rejects())
     sms_out.send("+256700000001", "hi")
     assert calls == ["hi"]
+
+
+def test_demo_stream_fills_dashboard_and_refresh_param(client):
+    from service import seed_demo
+    from service.main import app
+    logged = seed_demo.stream(app.state.db, app.state.bands, 60)
+    assert logged >= 54                         # implausible prices are never logged; none expected here
+    page = client.get("/coop", params={"crop": "maize", "refresh": 2}).text
+    assert 'content="2"' in page and "refresh=2" in page and "below P10" in page
+    assert 'content="30"' in client.get("/coop").text
+    assert 'content="1"' in client.get("/coop", params={"refresh": 0}).text
