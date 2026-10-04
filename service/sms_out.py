@@ -5,6 +5,7 @@ Off unless AT_USERNAME and AT_API_KEY are set (env or .env.local); the local /in
 """
 import logging
 import os
+import time
 from pathlib import Path
 
 log = logging.getLogger("uvicorn.error")
@@ -36,11 +37,22 @@ def _client():
     return _sms
 
 
-def send(phone: str, text: str, shortcode: str | None = None) -> None:
-    """Send one reply; failures are logged, never raised (the webhook must still answer 200)."""
+def send(phone: str, text: str, shortcode: str | None = None, attempts: int = 3) -> None:
+    """Send one reply; failures are logged, never raised (the webhook must still answer 200).
+    Connection errors (request never reached AT, e.g. a TLS glitch) are retried; anything else is not,
+    so a farmer never gets the same SMS twice."""
+    from requests.exceptions import ConnectionError
+
     sender = os.environ.get("AT_SHORTCODE") or shortcode
-    try:
-        res = _client().send(text, [phone], sender_id=sender)
-        log.info("AT send to %s: %s", phone[-4:], res.get("SMSMessageData", {}).get("Message"))
-    except Exception as e:
-        log.warning("AT send to %s failed: %s", phone[-4:], e)
+    for attempt in range(1, attempts + 1):
+        try:
+            res = _client().send(text, [phone], sender_id=sender)
+            log.info("AT send to %s: %s", phone[-4:], res.get("SMSMessageData", {}).get("Message"))
+            return
+        except ConnectionError as e:
+            log.warning("AT send to %s attempt %d/%d failed: %s", phone[-4:], attempt, attempts, e)
+            if attempt < attempts:
+                time.sleep(attempt)
+        except Exception as e:
+            log.warning("AT send to %s failed: %s", phone[-4:], e)
+            return

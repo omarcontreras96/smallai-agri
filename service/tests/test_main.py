@@ -80,3 +80,31 @@ def test_sms_checkpoint_exchanges(client):
     # offers land on /coop under a hashed phone, not demo-
     page = client.get("/coop", params={"crop": "beans"}).text
     assert "Mbale" in page and "demo" not in page.split("Recent offers")[1]
+
+
+def test_sms_out_retries_connection_errors_only(monkeypatch):
+    from requests.exceptions import ConnectionError
+    from service import sms_out
+    calls = []
+
+    class Flaky:
+        def send(self, text, to, sender_id=None):
+            calls.append(text)
+            if len(calls) == 1:
+                raise ConnectionError("SSL: WRONG_VERSION_NUMBER")
+            return {"SMSMessageData": {"Message": "Sent to 1/1"}}
+
+    monkeypatch.setattr(sms_out, "_client", lambda: Flaky())
+    monkeypatch.setattr(sms_out.time, "sleep", lambda s: None)
+    sms_out.send("+256700000001", "hi")
+    assert calls == ["hi", "hi"]
+
+    class Rejects:
+        def send(self, text, to, sender_id=None):
+            calls.append(text)
+            raise ValueError("Invalid phone number")
+
+    calls.clear()
+    monkeypatch.setattr(sms_out, "_client", lambda: Rejects())
+    sms_out.send("+256700000001", "hi")
+    assert calls == ["hi"]
