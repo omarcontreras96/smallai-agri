@@ -8,10 +8,10 @@ The plan covers both:
 
 | World Bank point | Where it is covered |
 |---|---|
-| 1. One-sentence problem statement | Demo clip, 0:00 |
+| 1. One-sentence problem statement | Combined cut: Frame A before the Demo clip (the Demo clip itself opens with the dramatized problem) |
 | 2. AI capabilities, why a simpler tool would not do, guardrails | Tech clip, 0:00–0:40 |
-| 3. Tool demo, end to end | Demo clip, 0:08–0:60 |
-| 4. Where it sits in the user's day, tech stack | Demo clip, 0:08 (moment of sale) and Tech clip, 0:00 (stack frame) |
+| 3. Tool demo, end to end | Demo clip, 0:11–0:51 (real SMS through Africa's Talking) |
+| 4. Where it sits in the user's day, tech stack | Demo clip, 0:00 and 0:51 (Noor at the moment of sale) and Tech clip, 0:00 (stack frame) |
 | 5. What localizing AI means to us | Team clip, 0:25–0:60 |
 
 Each script is about 55 seconds of voice-over at a calm pace (2.4 words per second), leaving a margin under the 60-second limit. Time a read-through before recording. Every reply below comes from the current `main` on a fresh database, recorded in this order.
@@ -19,12 +19,13 @@ Each script is about 55 seconds of voice-over at a calm pace (2.4 words per seco
 Links for both forms: demo https://smallai-agri.vercel.app · repo https://github.com/omarcontreras96/smallai-agri
 
 ## Before recording (Pepe's PC: Africa's Talking is set up there)
-1. Latest code and a fresh state, with the labelled synthetic farmer offers seeded **before** recording, so the dashboard already has data:
+1. Latest code and a fresh state. **Demo clip: empty database, no seeding** (the replies below were produced that way; the dashboard isn't in the Demo clip):
    ```bash
    git pull && uv sync
-   rm -f data/service.db && uv run python -m service.seed_demo
+   rm -f data/service.db
    uv run uvicorn service.main:app
    ```
+   **Tech clip** (dashboard shots): after the Demo take, stop the server, `rm -f data/service.db && uv run python -m service.seed_demo`, start it again.
    Being on the latest `main` matters: the bands and the example markets changed tonight, and the captions below assume them.
 2. The SMS path, with **internet on**:
    - start the tunnel: `cloudflared tunnel --url http://localhost:8000`;
@@ -34,50 +35,73 @@ Links for both forms: demo https://smallai-agri.vercel.app · repo https://githu
 3. Browser at 125% zoom, two more tabs: `http://localhost:8000/inbox?phone=%2B256700000002` (the offline shot) and `http://localhost:8000/coop`.
 4. Rehearse once, then **reset** (step 1) so the recording starts clean. Don't send anything else from the simulator number between the rehearsal and the take.
 5. Three still frames ready (see "Still frames" at the end).
-6. Recording: macOS `Cmd+Shift+5` (screen + microphone), or record the screen and the voice separately. Paste messages instead of typing them, and **cut the few seconds of waiting** for each SMS reply in the edit. Add captions for the Swahili replies.
+6. Recording: macOS `Cmd+Shift+5`; Windows: Snipping Tool video (`Win+Shift+R`), edit in Clipchamp (cut waits, captions, join clips). Or record the screen and the voice separately. Paste messages instead of typing them, and **cut the few seconds of waiting** for each SMS reply in the edit. Add captions for the Swahili replies.
 
 ---
 
-## Clip 1. Demo: what we built (60 s)
+## Clip 1. Demo: SourceSpot (60 s)
 Form fields: portal "Product demo", Google Form "Demo video".
+
+Story: a buyer lowballs Noor, SourceSpot shows what it can do (three English messages), then Noor uses it in Swahili on the same offer and sells for more. All SMS from **one simulator number** (`+256700000001`): one phone is one vote, so her own offers don't move the Gulu band between Swahili 1 and 2.
 
 | Time | On screen | Voice-over |
 |---|---|---|
-| 0:00–0:08 | **Frame A**: the problem sentence, Noor | "At harvest, a buyer names a price for Noor's maize. She has no way to check it. Now she can, before she agrees." |
-| 0:08–0:28 | Africa's Talking simulator (Noor's phone): send `mahindi 20000 beseni arua` → SMS asks the basin size → send `1` → verdict SMS (captions below) | "At the moment of sale she texts the offer in Swahili from a basic phone. It asks her basin size, converts to a price per kilo, and checks this month's market band. Low: ask for thirty thousand five hundred. Prices are falling. She decides." |
-| 0:28–0:37 | Simulator: send `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "Data too old, market unknown, message unclear? It says: not sure, ask your co-op. It never guesses." |
-| 0:37–0:48 | **Turn Wi-Fi off** on camera. Inbox tab: paste `beans 4000 kg jinja` → FAIR reply appears at once; scroll to the footer with the file sizes | "Internet off: the co-op laptop still answers. In the field it needs an SMS line, not the internet. The price bands are a twenty-one kilobyte file." |
-| 0:48–0:58 | `/coop` tab: tiles, then the red dots and the Mbale row | "Every report feeds the co-op dashboard: bands refreshed by farmers' reports, and buyers paying below the band flagged in red." |
+| 0:00–0:08 | **Scene 1, video, labelled "Dramatization".** Gulu market. A buyer weighs Noor's maize and names his price: *"Eleven hundred a kilo. Take it or leave it."* Noor hesitates; close-up of her basic phone. | "Small farmers sell alone, with no price to check. A buyer offers Noor eleven hundred shillings a kilo. Is that fair?" |
+| 0:08–0:11 | **Title card (Frame D):** SourceSpot. *Is this offer fair? Ask by SMS.* | "This is SourceSpot." |
+| 0:11–0:25 | **English 1**, Africa's Talking simulator: send `A buyer in Arua is offering me 20,000 shillings for a basin of maize. Is that fair?` → size question → send `1` → LOW verdict | "Farmers text the offer in their own words. SourceSpot asks the basin size, converts it to a price per kilo, and checks this month's market band. Low: ask for thirty thousand five hundred." |
+| 0:25–0:31 | **English 2:** send `What is the price of beans in Lira?` → band | "They can check a market before going to sell." |
+| 0:31–0:39 | **English 3:** send `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "And when the data is too old, it never guesses. It says: not sure, ask your co-op." |
+| 0:39–0:51 | **Swahili 1 and 2**, English captions: send `mahindi 1100 kwa kilo gulu` → CHINI, ask 1,750; then `mahindi 1800 kwa kilo gulu` → SAWA | "Built for Noor, in her language. Eleven hundred: low, ask for seventeen-fifty. The buyer comes back with eighteen hundred: fair." |
+| 0:51–0:59 | **Scene 2, video, labelled "Dramatization".** Same market. Noor shows the buyer her phone and counters; he agrees; handshake; she counts the money. | "Noor sells at eighteen hundred, sixty-four percent more, using the phone she already has. She decides." |
 
-Voice-over: 130 words, about 54 s at a calm pace.
+Voice-over: about 125 words, about 52 s at a calm pace. Paste the messages, and cut the SMS waits in the edit.
 
-Replies on screen, with captions:
+Replies on screen (real output, empty database, this order), with captions for Swahili:
+
+English 1
 ```
-Beseni ni kilo ngapi? Jibu 1=15kg 2=20kg
+How many kg is the basin? Reply 1=15kg 2=20kg
 ```
-*How many kg is the basin? Reply 1=15kg 2=20kg*
 ```
-Mahindi Arua: 20,000/beseni (15kg) = 1,330/kg.
-Bei ya soko mwezi huu: 1,590-2,590/kg.
-Ofa ni CHINI (~34% chini ya wastani). Omba 30,500 kwa beseni.
-Miezi 2 ijayo: bei inashuka.
-Bei ya rejareja mjini, si ya shambani. Uamuzi ni wako.
+Maize Arua: 20,000/basin (15kg) = 1,330/kg.
+Market price this month: 1,590-2,590/kg.
+Offer is LOW (~34% below average). Ask 30,500 per basin.
+Next 2 months: prices falling.
+Town retail price, not farm-gate. You decide.
 ```
-*Maize, Arua: 20,000 per 15 kg basin = 1,330/kg. Market price this month: 1,590–2,590/kg. The offer is LOW (~34% below average). Ask for 30,500 per basin. Next 2 months: prices falling. Town retail price, not farm-gate. Your decision.*
+English 2
+```
+Beans Lira this month: 2,920-4,480/kg (average 3,730).
+Next 2 months: prices steady.
+Town retail price.
+```
+English 3
 ```
 Not sure: last Wakiso market data is 18 months old. Ask your co-op or extension officer.
 ```
-The verdict is 231 characters, so it arrives as **two SMS parts**; the simulator may show them as one message or two. Either is fine; the captions cover the whole text.
+Swahili 1 (`mahindi 1100 kwa kilo gulu`)
+```
+Mahindi Gulu: 1,100/kg.
+Bei ya soko mwezi huu: 1,410-2,190/kg.
+Ofa ni CHINI (~38% chini ya wastani). Omba 1,750 kwa kilo.
+Miezi 2 ijayo: bei haibadiliki sana.
+Bei ya rejareja mjini, si ya shambani. Uamuzi ni wako.
+```
+*Maize, Gulu: 1,100/kg. Market price this month: 1,410–2,190/kg. The offer is LOW (~38% below average). Ask for 1,750 per kg. Next 2 months: prices steady. Town retail price, not farm-gate. Your decision.*
 
-Offline shot (local inbox, Wi-Fi off):
+Swahili 2 (`mahindi 1800 kwa kilo gulu`)
 ```
-Beans Jinja: 4,000/kg.
-Market price this month: 3,740-4,920/kg.
-Offer is FAIR. You can ask 4,250 per kg.
-Next 2 months: prices steady.
-Town retail price, not farm-gate. You decide.
+Mahindi Gulu: 1,800/kg.
+Bei ya soko mwezi huu: 1,410-2,190/kg.
+Ofa ni SAWA.
+Miezi 2 ijayo: bei haibadiliki sana.
+Bei ya rejareja mjini, si ya shambani. Uamuzi ni wako.
 ```
-Dashboard tiles (maize tab), as seeded: 23 offers logged, 22 farmers reporting, 7 markets with reports, 5 bands updated by reports, 3 offers below P10.
+*Maize, Gulu: 1,800/kg. Market price this month: 1,410–2,190/kg. The offer is FAIR. Next 2 months: prices steady. Town retail price, not farm-gate. Your decision.*
+
+Verdicts are 167–218 characters, so they arrive as **two SMS parts**; the simulator may show one bubble or two. The captions cover the whole text.
+
+**Moved out of the Demo clip (to place in the Tech clip):** the Wi-Fi-off shot (core works offline: `beans 4000 kg jinja` in the local inbox answers FAIR, ask 4,250) and the `/coop` dashboard.
 
 ---
 
@@ -118,13 +142,14 @@ Three 1920×1080 images, used inside the clips. This is not a slide deck.
 
 | Frame | File | Used in |
 |---|---|---|
-| A, the problem | `docs/slides/frame_a_problem.png` | Demo 0:00–0:08 |
+| A, the problem | `docs/slides/frame_a_problem.png` | Combined cut, before the Demo clip |
+| D, title card: SourceSpot | to make | Demo 0:08–0:11 |
 | B, Noor's day + stack | `docs/slides/frame_b_stack.png` | Tech 0:00–0:15 |
 | C, backtest | `docs/slides/backtest.png` | Tech 0:15–0:33 |
 
 Frames A and B are HTML in `docs/slides/frames/`. To change the text, edit the HTML and re-render with `bash docs/slides/frames/render.sh` (headless Chrome, throwaway profile). Contents:
 
-- **Frame A (Demo, 0:00).** The problem sentence:
+- **Frame A (combined cut).** The problem sentence:
   > Because of this tool, a smallholder farmer like Noor will know the fair price band for her maize or beans *before* she accepts a buyer's offer, which she would otherwise do blind; we know because the Côte d'Ivoire E-Agriculture project ($70M, P160418) broadcast prices to 400K farmers and never measured whether anyone received a better price.
 - **Frame B (Tech, 0:00).** The stack and the moment in the day:
   - **Day:** buyer names a price → Noor texts it → reply in seconds → she decides.
@@ -139,9 +164,9 @@ Frames A and B are HTML in `docs/slides/frames/`. To change the text, edit the H
 4. Join the three clips (Demo → Tech → Team), upload the ~3-minute cut unlisted, check it opens in a private window, and put the link at the top of the README.
 
 ## If a take breaks
-- **Wrong state:** stop the server, `rm -f data/service.db`, seed, start again.
+- **Wrong state:** stop the server, `rm -f data/service.db`, start again (seed only for the Tech clip's dashboard shots).
 - **A reply differs from this script:** the database wasn't fresh, or `models/bands.json` changed. Re-run step 1 of "Before recording".
-- **No SMS reply in the simulator:** check `/health` shows `"sms_out": true`, and that the sandbox callback matches the *current* tunnel address plus `/sms`. If it still fails, record 0:08–0:37 on the local inbox instead (same messages, same replies) and keep the Wi-Fi-off shot.
+- **No SMS reply in the simulator:** check `/health` shows `"sms_out": true`, and that the sandbox callback matches the *current* tunnel address plus `/sms`. If it still fails, record 0:11–0:51 on the local inbox instead (same messages, same replies).
 - **The laptop run fails:** record on https://smallai-agri.vercel.app instead. The examples are on its front page. In that case, drop the Wi-Fi-off line.
 - **Backup machine:** Omar's laptop can run the local parts (inbox, Wi-Fi off, dashboard) with the same commands. It has no Africa's Talking keys.
 
@@ -151,7 +176,8 @@ Frames A and B are HTML in `docs/slides/frames/`. To change the text, edit the H
 | Newest town prices 6–10 months old | `models/bands.json` `gap_months_h1`; WFP data ends Apr 2026 |
 | Prices since 2008, 28 towns | `data/processed/monthly.csv`: Oct 2008 – Apr 2026; 28 markets in the bands |
 | Spreadsheet band 69% a year out, ours ~80% | `docs/slides/backtest.csv` (12-month gap: 0.690 vs 0.795) |
-| Bands file 21 KB | inbox footer (`models/bands.json`) |
+| Bands file ~23 KB | inbox footer shows `bands.json` 22.6 KB (Frame B says 21 KB: update) |
 | Reply in milliseconds | measured: median 2 ms, max 15 ms per reply on a laptop |
 | Rebuild in 30 s | `model/train.py` full run |
 | 400K farmers, $70M, P160418 | team's problem statement (`docs/CONCEPT.md`) |
+| Noor sells for 64% more | Demo story: 1,800 vs 1,100 UGX/kg (dramatization; both replies are real tool output) |
