@@ -1,6 +1,7 @@
 """SMS service. Run: uv run uvicorn service.main:app --reload
 
-POST /sms    Africa's Talking incoming-SMS webhook (form fields `from`, `text`); returns the reply as plain text.
+POST /sms    Africa's Talking incoming-SMS webhook (form fields `from`, `text`, `to`); returns the reply as plain text
+             and, if AT_* credentials are set, also sends it as an SMS (see sms_out.py).
 GET  /inbox  Local phone simulator (works with Wi-Fi off). POST /inbox sends a message from it.
 GET  /health Band file and DB info.
 """
@@ -8,11 +9,11 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from urllib.parse import quote
 
-from fastapi import FastAPI, Form, Request
+from fastapi import BackgroundTasks, FastAPI, Form, Request
 from fastapi.responses import PlainTextResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-from service import db, reply
+from service import db, reply, sms_out
 from service.bands import MODELS, bands_path, load_bands
 
 DEFAULT_PHONE = "+256700000001"
@@ -21,6 +22,7 @@ templates = Jinja2Templates(directory=Path(__file__).parent / "templates")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    sms_out.load_env()
     app.state.db = db.connect()
     app.state.bands_path = bands_path()
     app.state.bands = load_bands(app.state.bands_path)
@@ -40,8 +42,12 @@ def handle(phone: str, text: str) -> str:
 
 
 @app.post("/sms", response_class=PlainTextResponse)
-def sms(phone: str = Form(..., alias="from"), text: str = Form("")):
-    return handle(phone, text)
+def sms(background: BackgroundTasks, phone: str = Form(..., alias="from"), text: str = Form(""),
+        to: str | None = Form(None)):
+    out = handle(phone, text)
+    if sms_out.enabled():
+        background.add_task(sms_out.send, phone, out, to)
+    return out
 
 
 @app.get("/inbox")
@@ -71,4 +77,5 @@ def health():
         "n_bands": len(app.state.bands.get("bands", {})),
         "markets": sorted(app.state.bands.get("markets", {})),
         "db": str(db.db_path()),
+        "sms_out": sms_out.enabled(),
     }

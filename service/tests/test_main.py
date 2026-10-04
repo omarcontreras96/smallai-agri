@@ -5,6 +5,7 @@ from fastapi.testclient import TestClient
 @pytest.fixture
 def client(tmp_path, monkeypatch):
     monkeypatch.setenv("SMALLAI_DB", str(tmp_path / "test.db"))
+    monkeypatch.setenv("AT_API_KEY", "")   # never send real SMS from tests (load_env does not override)
     from service.main import app
     with TestClient(app) as c:
         yield c
@@ -36,3 +37,12 @@ def test_threads_are_per_phone_and_phone_not_stored(client):
 def test_health_reads_bands(client):
     h = client.get("/health").json()
     assert h["n_bands"] > 0 and "Mbale" in h["markets"]
+
+
+def test_sms_sends_reply_via_africas_talking_when_configured(client, monkeypatch):
+    from service import sms_out
+    sent = []
+    monkeypatch.setattr(sms_out, "enabled", lambda: True)
+    monkeypatch.setattr(sms_out, "send", lambda phone, text, to=None: sent.append((phone, text, to)))
+    r = client.post("/sms", data={"from": "+256700000042", "text": "habari", "to": "6000"})
+    assert sent == [("+256700000042", r.text, "6000")]
