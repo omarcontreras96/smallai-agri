@@ -96,6 +96,7 @@ PAGE = """<!doctype html>
     <li>No SMS is sent from this page. The real setup runs offline on a co-op laptop and receives SMS through Africa's Talking.</li>
     <li>Reference prices: WFP retail prices, Uganda town markets (HDX, CC BY-IGO), data to Apr 2026.
     The band for the current month is a forecast from that data, refreshed by farmers' reports. It is a town retail price, not a farm-gate price; the farmer decides.</li>
+    <li>Code, evidence and data sources: <a href="https://github.com/omarcontreras96/smallai-agri">github.com/omarcontreras96/smallai-agri</a>.</li>
   </ul>
 </main>
 <script>

@@ -1,5 +1,7 @@
 # Concept: SMS price-band service for smallholder sellers
 
+> **Pre-build concept, partly superseded.** Written before the build when Kenya was the target. What was actually built (Uganda, rules-based parser, no language model) is in [README.md](../README.md); decisions in [DECISIONS.md](DECISIONS.md).
+
 Status: consolidated from the team's chat session (Oct 3, ~2–5 PM ET). Items marked **PROPOSED** still need a team yes.
 
 ## One-sentence problem (brief's template)
