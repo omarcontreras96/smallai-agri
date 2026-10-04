@@ -1,0 +1,23 @@
+/* Shared look for the video still frames (1920x1080). Same tokens as docs/slides/backtest.png. */
+:root {
+  --surface: #fcfcfb;
+  --panel: #f3f2ee;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --line: #e1e0d9;
+  --accent: #2a78d6;
+  --accent-wash: #e8f1fc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; }
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 96px 120px;
+  display: flex;
+  flex-direction: column;
+}
+.eyebrow { font-size: 24px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.foot { margin-top: auto; font-size: 24px; color: var(--muted); }
