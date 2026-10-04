@@ -138,6 +138,9 @@ Real SMS through Africa's Talking: copy `.env.example` to `.env.local`, fill in 
 - `service/`: SMS service, parser, replies, dashboard, demo entrypoint
 - `docs/`: [EVIDENCE.md](docs/EVIDENCE.md), [DECISIONS.md](docs/DECISIONS.md) (one line per decision), [BUILD_PLAN.md](docs/BUILD_PLAN.md), [DATA.md](docs/DATA.md) (data audit), [CONCEPT.md](docs/CONCEPT.md) (pre-build concept)
 
+## License
+Code: [MIT](LICENSE). Data: the WFP price files in `data/raw/` and everything derived from them (`data/processed/`, `models/`) remain under the WFP/HDX license, CC BY-IGO, with attribution to the World Food Programme.
+
 ## Team
 - **Omar Contreras** (@omarcontreras96): data, band model, nowcaster, evidence
 - **Pepe** (@josepl31dev): SMS service, parser, replies, co-op dashboard

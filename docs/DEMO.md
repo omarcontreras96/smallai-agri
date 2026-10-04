@@ -1,46 +1,56 @@
-# Demo and video script
+# Video scripts: three 60-second clips
 
-Target length **about 4:00** (the brief allows 2–5 min). The five sections follow the brief's order. Every reply below was produced by the current `main` on a fresh database, so a clean recording shows exactly these messages.
+Hack-Nation wants **three videos of at most 60 seconds each**: Demo, Tech and Team. Each goes to the portal (MP4 or MOV, at most 1 GB) **and** to the Google Form. The World Bank brief wants **one video of 2 to 5 minutes** covering five points, and says entries without it will not be shortlisted.
 
-Links for the form: demo https://smallai-agri.vercel.app · repo https://github.com/omarcontreras96/smallai-agri
+The plan covers both:
+- record the three clips so that, played back to back, they cover all five World Bank points;
+- join them into one ~3-minute cut, upload it unlisted (YouTube or Drive), and link it at the top of the README.
+
+| World Bank point | Where it is covered |
+|---|---|
+| 1. One-sentence problem statement | Demo clip, 0:00 |
+| 2. AI capabilities, why a simpler tool would not do, guardrails | Tech clip, 0:00–0:40 |
+| 3. Tool demo, end to end | Demo clip, 0:08–0:60 |
+| 4. Where it sits in the user's day, tech stack | Demo clip, 0:08 (moment of sale) and Tech clip, 0:00 (stack frame) |
+| 5. What localizing AI means to us | Team clip, 0:25–0:60 |
+
+Each script is about 55 seconds of voice-over at a calm pace (2.4 words per second), leaving a margin under the 60-second limit. Time a read-through before recording. Every reply below comes from the current `main` on a fresh database, recorded in this order.
+
+Links for both forms: demo https://smallai-agri.vercel.app · repo https://github.com/omarcontreras96/smallai-agri
 
 ## Before recording
 1. `git pull` and `uv sync` on `main`.
-2. Fresh state: `rm -f data/service.db`. **Do not seed yet**; the seeding happens on camera in scene 3f.
-3. Start the service: `uv run uvicorn service.main:app`
-4. Browser, zoom 125%, two tabs:
-   - `http://localhost:8000/inbox?phone=%2B256700000001` (Noor's phone)
-   - `http://localhost:8000/coop`
-5. A terminal next to the browser, for the seeding in 3f.
-6. Slides 1, 2, 4 and 5 open (see "Slides" below).
-7. **Turn Wi-Fi off before section 3** and keep it off for the whole demo, with the icon visible in the menu bar. Everything in section 3 runs offline.
-8. Optional: Pepe's Africa's Talking simulator take (scene 3g), recorded separately because it needs internet.
+2. Fresh state, then seed the labelled synthetic farmer offers **before** recording, so the dashboard already has data:
+   ```bash
+   rm -f data/service.db
+   uv run python -m service.seed_demo
+   uv run uvicorn service.main:app
+   ```
+3. Browser at 125% zoom, two tabs: `http://localhost:8000/inbox?phone=%2B256700000001` (Noor's phone) and `http://localhost:8000/coop`.
+4. **Wi-Fi off** for the Demo clip, with the icon visible in the menu bar.
+5. Three still frames ready (see "Still frames" at the end).
+6. Recording: macOS `Cmd+Shift+5` (screen + microphone), or record the screen and the voice separately. Paste messages instead of typing them, or speed up the typing 2× in the edit. Add captions for the Swahili replies.
 
-Swahili replies get English subtitles; the subtitle text is given under each reply.
+---
 
-## Section 1. The problem (0:00–0:25), slide 1
-On screen: the one-sentence problem, and Noor.
+## Clip 1. Demo: what we built (60 s)
+Form fields: portal "Product demo", Google Form "Demo video".
 
-> Because of this tool, a smallholder farmer like Noor will know the fair price band for her maize or beans *before* she accepts a buyer's offer, which she would otherwise do blind; we know because the Côte d'Ivoire E-Agriculture project ($70M, P160418) broadcast prices to 400K farmers and never measured whether anyone received a better price.
+| Time | On screen | Voice-over |
+|---|---|---|
+| 0:00–0:08 | **Frame A**: the problem sentence, Noor | "At harvest, a buyer names a price for Noor's maize. She has no way to check it. Now she can, before she agrees." |
+| 0:08–0:30 | Inbox: paste `mahindi 20000 beseni arua` → reply asks the basin size → send `1` → verdict (captions below) | "At the moment of sale she texts the offer in Swahili from a basic phone. It asks her basin size, converts to a price per kilo, and checks this month's market band. Low: ask for thirty thousand five hundred. Prices are falling. She decides." |
+| 0:30–0:40 | Paste `maize 1200 kg wakiso` → "Not sure… Ask your co-op or extension officer." | "When the data is too old, the market unknown or the message unclear, it says: not sure, ask your co-op. It never guesses." |
+| 0:40–0:48 | Point at the Wi-Fi icon (off), scroll to the inbox footer with file sizes | "All of this runs offline, on a laptop at the co-op. The price bands are a twenty-one kilobyte file." |
+| 0:48–0:58 | `/coop` tab: tiles, then the red dots and the Mbale row | "Every report feeds the co-op dashboard: bands refreshed by farmers' reports, and buyers paying below the band flagged in red." |
 
-Voice-over: "This is Noor. She grows coffee, maize and beans on two hectares in Uganda and carries a basic phone. At harvest a buyer names a price. She has no independent way to know if it's fair."
+Voice-over: 129 words, about 54 s at a calm pace.
 
-## Section 2. What the AI does, and why simpler tools fall short (0:25–1:05), slide 2 with `docs/slides/backtest.png`
-Voice-over:
-- "Three small models, all on a laptop at the co-op. A parser reads messy SMS in Swahili, English and Luganda. A band model forecasts this month's fair price range for each market. A nowcaster updates that range from what farmers report."
-- "Why not just text out the latest price list? Because the newest public prices for Ugandan towns are six to ten months old. A spreadsheet that adds historical swings to the last price catches the real price 82% of the time one month out, and only 69% a year out. Our band stays at about 80% at every gap: it widens honestly as the data ages."
-- "And a web search gives no per-basin price for maize in Arua, on a basic phone, today."
-
-## Section 3. The tool, end to end (1:05–2:55)
-Wi-Fi is off. Noor's phone is the inbox tab.
-
-**3a. A low offer, in Swahili (1:05–1:35).** Type:
+Replies on screen, with captions:
 ```
-mahindi 20000 beseni arua
+Beseni ni kilo ngapi? Jibu 1=15kg 2=20kg
 ```
-Reply: `Beseni ni kilo ngapi? Jibu 1=15kg 2=20kg`. Subtitle: *How many kg is the basin? Reply 1=15kg 2=20kg*
-
-Type `1`. Reply:
+*How many kg is the basin? Reply 1=15kg 2=20kg*
 ```
 Mahindi Arua: 20,000/beseni (15kg) = 1,330/kg.
 Bei ya soko mwezi huu: 1,590-2,590/kg.
@@ -48,106 +58,75 @@ Ofa ni CHINI (~34% chini ya wastani). Omba 30,500 kwa beseni.
 Miezi 2 ijayo: bei inashuka.
 Bei ya rejareja mjini, si ya shambani. Uamuzi ni wako.
 ```
-Subtitle: *Maize, Arua: 20,000 per 15 kg basin = 1,330/kg. Market price this month: 1,590–2,590/kg. The offer is LOW (~34% below average). Ask for 30,500 per basin. Next 2 months: prices falling. Town retail price, not farm-gate. Your decision.*
-
-Voice-over: "It converts her unit, compares the offer with this month's band, says what to ask for, and where prices are heading. It reminds her the reference is the town market price and that the decision is hers."
-
-**3b. English, per kg (1:35–1:45).** Type `beans 4000 kg jinja`:
+*Maize, Arua: 20,000 per 15 kg basin = 1,330/kg. Market price this month: 1,590–2,590/kg. The offer is LOW (~34% below average). Ask for 30,500 per basin. Next 2 months: prices falling. Town retail price, not farm-gate. Your decision.*
 ```
-Beans Jinja: 4,000/kg.
-Market price this month: 3,740-4,920/kg.
-Offer is FAIR. You can ask 4,250 per kg.
-Next 2 months: prices steady.
-Town retail price, not farm-gate. You decide.
+Not sure: last Wakiso market data is 18 months old. Ask your co-op or extension officer.
 ```
+Dashboard tiles (maize tab), as seeded: 23 offers logged, 22 farmers reporting, 7 markets with reports, 5 bands updated by reports, 3 offers below P10.
 
-**3c. A Luganda word (1:45–1:55).** Type `kasooli 1500 kilo arua` (kasooli = maize in Luganda):
-```
-Mahindi Arua: 1,500/kg.
-Bei ya soko mwezi huu: 1,590-2,590/kg.
-Ofa ni CHINI (~26% chini ya wastani). Omba 2,050 kwa kilo.
-Miezi 2 ijayo: bei inashuka.
-Bei ya rejareja mjini, si ya shambani. Uamuzi ni wako.
-```
-Voice-over: "It understands Luganda crop and unit words. It replies in Swahili, because we wouldn't ship Luganda replies we couldn't have checked by a native speaker."
+---
 
-**3d. "Not sure, ask a person" (1:55–2:15).** This is the pass/fail criterion; make it visible.
-- Type `maize 1200 kg wakiso`:
-  ```
-  Not sure: last Wakiso market data is 18 months old. Ask your co-op or extension officer.
-  ```
-- Type `mahindi 1000 kilo kitgum`:
-  ```
-  Sijui kwa uhakika: soko 'kitgum' halipo kwenye orodha yetu. Uliza chama au afisa kilimo.
-  ```
-  Subtitle: *Not sure: the market 'kitgum' is not on our list. Ask your co-op or extension officer.*
+## Clip 2. Tech: how we built it (60 s)
+Form fields: portal "Technical walkthrough", Google Form "Tech video" (what was hard, how we overcame it, remaining limits).
 
-Voice-over: "When the data is too old, the band too wide, the market unknown or the message unclear, it says so and points her to a person. It never guesses."
-
-**3e. Offline and small (2:15–2:30).** Point at the Wi-Fi icon (off), then scroll to the inbox footer with the file sizes.
-
-Voice-over: "All of this ran with Wi-Fi off, on a laptop. The price bands are a 21-kilobyte file. A reply takes about two milliseconds. In the field, the same box sits at the co-op with an SMS gateway: no internet, no cloud model."
-
-**3f. The co-op dashboard (2:30–2:55).** In the terminal, run:
-```bash
-uv run python -m service.seed_demo
-```
-Voice-over: "Now other farmers report their offers. These are synthetic and labelled 'demo'."
-
-Switch to the `/coop` tab (it opens on maize). Expected tiles: 24 offers logged, 22 farmers reporting, 7 markets with reports, 5 bands updated by reports, 3 offers below P10. The beans tab shows 12 offers, 4 markets, 1 below P10.
-
-Point at three things:
-1. **Mbale maize:** its last market data is 17 months old (the "not sure" case), but the band is now refreshed by four farmers' reports.
-2. **Red dots:** offers below the band's low end, i.e. buyers the co-op should look at.
-3. **Gulu maize:** the band after reports sits well below the model band. Say it plainly: "Farmers report farm-gate offers, and the model knows town retail prices, so reports pull the band down. That gap is real, and the dashboard makes it visible."
-
-(Scripted reply not recommended here: after the reports, `mahindi 1500 kilo mbale` now gets a verdict based on four farmers' reports. Whether two to four reports should reopen a stale market is still an open decision. The dashboard shows the same thing without endorsing it.)
-
-**3g. Optional: the real SMS path (Pepe's take, ~10 s).** Africa's Talking simulator: the same `mahindi 20000 beseni arua` → `1` exchange arriving as SMS. Voice-over: "And through a real SMS gateway, here in Africa's Talking's sandbox."
-
-## Section 4. Where it sits in Noor's day, and the stack (2:55–3:25), slide 4
-Voice-over: "Noor uses it at the moment of sale: the buyer is at her gate or she is at the market, and she texts before she agrees. Behind the shortcode, one small box at the co-op runs everything: the parser, the bands and the nowcaster. Once a month someone rebuilds the bands from the WFP price data on a laptop in thirty seconds and copies a 21-kilobyte file over."
-
-Slide 4 layout:
-- **Day:** harvest → buyer names a price → SMS → reply in seconds → she decides.
-- **Stack:** basic phone → SMS shortcode → Africa's Talking → co-op laptop or Raspberry Pi (FastAPI service: parser, `bands.json`, nowcaster, Swahili/English templates, SQLite log) → co-op dashboard.
-- **Monthly:** WFP prices (HDX) → `model/train.py` → `bands.json`.
-
-## Section 5. What localizing AI means to us (3:25–4:00), slide 5
-Draft voice-over (team to edit, in your own words):
-
-> "For us, localizing AI is not translating an app. It means:
-> - the units people actually sell in (a basin, a tin, a bag), and asking when one is unclear;
-> - the words people actually type, in Swahili, English and Luganda, typos included;
-> - local reference prices with their holes stated: retail, not farm-gate, and months old. When the data is old, the honest answer is a wider band, not false precision;
-> - local people as the fallback: the co-op and the extension officer, not a chatbot;
-> - running where the farmer is: a basic phone and a box at the co-op, no cloud.
->
-> **[Omar: one or two sentences on the Chiapas coyotes, the buyers who set the price because farmers can't check it, in your own words.]**"
-
-## Slides
-| # | Slide | Status |
+| Time | On screen | Voice-over |
 |---|---|---|
-| 1 | The problem sentence + Noor | to make |
-| 2 | Why AI: `docs/slides/backtest.png` + three one-liners (stale data, spreadsheet 69% vs ours ~80%, no search answer) | chart done |
-| 3 | Data gaps: the table in `docs/EVIDENCE.md` ("What the data does NOT cover"), condensed to five rows | to make |
-| 4 | Noor's day + the stack (layout above) | to make |
-| 5 | What localizing AI means to us | to make |
-| 6 | Moonshot | to make. Draft idea for the team: every co-op runs a price box, and farmers' reports become the first public record of prices *received* at the farm gate, the indicator broadcast projects never measured. |
+| 0:00–0:15 | **Frame B**: the stack | "Three small pieces on one co-op laptop, no cloud. A fuzzy parser reads Swahili, English and Luganda. A LightGBM quantile model, trained on WFP prices from twenty-eight towns since 2008, forecasts this month's band. A Bayesian nowcaster updates it from farmers' reports." |
+| 0:15–0:33 | **Frame C**: `docs/slides/backtest.png`, then zoom on the right panel | "The hard part: the newest town prices are six to ten months old. So the model forecasts by data age, calibrated on past years. A year out, a spreadsheet band catches the real price sixty-nine percent of the time; ours, eighty." |
+| 0:33–0:45 | Inbox thread with the "not sure" reply, then `service/reply.py` templates | "Guardrails: fixed reply templates, nothing generated. Not sure on stale data, wide bands or unknown markets. One vote per phone, so no single phone moves the band." |
+| 0:45–0:57 | `/coop`, Gulu maize row: band after reports well below the model band | "Limits: the reference is town retail, so farm-gate reports pull bands down, as here. And we tested the parser on messages we wrote, not real farmers' texts." |
 
-Slide 3 can replace part of section 2 or follow 3f if time allows; keep the total under 5:00.
+Voice-over: 137 words, about 57 s at a calm pace.
 
-## If something breaks while recording
-- **Wrong state:** stop the server, `rm -f data/service.db`, start again.
-- **A reply differs from this script:** the database wasn't fresh, or `models/bands.json` changed. Re-run from a clean database.
-- **The laptop run fails:** record the same messages on https://smallai-agri.vercel.app instead. Each visitor gets a random number there, and the examples are on its front page. In that case, say it's the hosted copy and skip the Wi-Fi-off claim.
+Other things worth a word if time allows (all true, all in `docs/EVIDENCE.md`): a bad record of 2 UGX/kg in the WFP data that we found and dropped; raw model bands covering only 54–69% before calibration; median error 403 vs 467 UGX/kg for the last observed price.
 
-## Facts we say on camera, and where they come from
+---
+
+## Clip 3. Team: who we are, and what localizing AI means to us (60 s)
+Form fields: portal "Team introduction", Google Form "Team video".
+
+Filmed with faces (laptop camera is fine), or the team photo with voice-over.
+
+| Time | Who | Voice-over (draft, edit into your own words) |
+|---|---|---|
+| 0:00–0:10 | Omar | "I'm Omar. **[one line: where you're from and what you do]**. I built the data pipeline, the price model and the evidence." |
+| 0:10–0:20 | Pepe | "I'm Pepe. **[one line: where you're from and what you do]**. I built the SMS service, the parser and the co-op dashboard." |
+| 0:20–0:25 | Either | "In one night we shipped a working tool, a live demo, open code and an honest evidence report." |
+| 0:25–0:58 | Omar (or split) | "Localizing AI isn't translating an app. It's the units people sell in, a basin, a tin. The words they type, in Swahili or Luganda. Local prices with their holes stated: old data means a wider band, not false precision. And local people as the fallback. **[Omar: one sentence on the coyotes in Chiapas, the buyers who set the price because farmers can't check it, in your own words.]**" |
+
+Voice-over: 91 words before the three bracketed lines; with them filled in (under 12 words each) it lands near 125 words, about 52 s.
+
+---
+
+## Still frames
+Three images, used inside the clips. This is not a slide deck.
+
+- **Frame A (Demo, 0:00).** The problem sentence:
+  > Because of this tool, a smallholder farmer like Noor will know the fair price band for her maize or beans *before* she accepts a buyer's offer, which she would otherwise do blind; we know because the Côte d'Ivoire E-Agriculture project ($70M, P160418) broadcast prices to 400K farmers and never measured whether anyone received a better price.
+- **Frame B (Tech, 0:00).** The stack and the moment in the day:
+  - **Day:** buyer names a price → Noor texts it → reply in seconds → she decides.
+  - **Stack:** basic phone → SMS shortcode (Africa's Talking) → co-op laptop or Raspberry Pi (parser, `bands.json`, nowcaster, Swahili/English templates, SQLite) → co-op dashboard.
+  - **Monthly:** WFP prices (HDX) → `model/train.py`, 30 s → `bands.json`, 21 KB.
+- **Frame C (Tech, 0:15).** `docs/slides/backtest.png` (already made).
+
+## After recording
+1. Check each clip is **60 s or less**. Export MP4.
+2. Portal: upload Team introduction, Product demo and Technical walkthrough. Fill in the project name, the challenge (World Bank, Agriculture), the GitHub link, the live URL and the team photo. Uploads stay open until **9:15 AM ET**.
+3. Google Form: upload the same three clips, the repo link, the demo link and the team picture. **List every team member.** Agree to the T&C; the code is MIT-licensed (`LICENSE`). **No re-submissions**, so submit once.
+4. Join the three clips (Demo → Tech → Team), upload the ~3-minute cut unlisted, check it opens in a private window, and put the link at the top of the README.
+
+## If a take breaks
+- **Wrong state:** stop the server, `rm -f data/service.db`, seed, start again.
+- **A reply differs from this script:** the database wasn't fresh, or `models/bands.json` changed. Re-run from step 2 of "Before recording".
+- **The laptop run fails:** record on https://smallai-agri.vercel.app instead. The examples are on its front page. In that case, drop the Wi-Fi-off line.
+
+## Facts said on camera, and where they come from
 | Claim | Source |
 |---|---|
 | Newest town prices 6–10 months old | `models/bands.json` `gap_months_h1`; WFP data ends Apr 2026 |
-| Spreadsheet band 82% → 69%, ours 79–83% | `docs/slides/backtest.csv` |
+| Prices since 2008, 28 towns | `data/processed/monthly.csv`: Oct 2008 – Apr 2026; 28 markets in the bands |
+| Spreadsheet band 69% a year out, ours ~80% | `docs/slides/backtest.csv` (12-month gap: 0.690 vs 0.795) |
 | Bands file 21 KB | inbox footer (`models/bands.json`) |
-| Reply ~2 ms on a laptop | measured on this script: median 2 ms, max 15 ms |
-| Rebuild in ~30 s | `model/train.py` full run |
+| Reply in milliseconds | measured: median 2 ms, max 15 ms per reply on a laptop |
+| Rebuild in 30 s | `model/train.py` full run |
 | 400K farmers, $70M, P160418 | team's problem statement (`docs/CONCEPT.md`) |
