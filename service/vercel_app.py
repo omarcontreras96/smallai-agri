@@ -31,6 +31,7 @@ def seed_once() -> None:
 
 
 seed_once()
+app.state.public_demo = True   # inbox footer says "hosted online", not "runs locally"
 
 # Verdict examples use markets without seeded demo offers, so the answer reflects the model band.
 EXAMPLES = [

@@ -14,3 +14,4 @@ def test_public_demo_landing_and_seeded_coop(tmp_path, monkeypatch):
         assert 0 < n <= 40
         r = c.post("/inbox", data={"phone": "+256799999999", "text": "beans 4000 kg mbale"})
         assert r.status_code == 200 and "Mbale" in r.text
+        assert "Public demo hosted online" in r.text and "Runs locally" not in r.text

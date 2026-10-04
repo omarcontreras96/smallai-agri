@@ -48,7 +48,7 @@
     </form>
   </div>
   <div class="meta">
-    Runs locally, no internet needed. Bands: <code>{{ bands_file }}</code> (generated {{ generated_at }})
+    {% if public_demo %}Public demo hosted online (<a href="/">examples</a>). The real setup runs on a co-op laptop with no internet.{% else %}Runs locally, no internet needed.{% endif %} Bands: <code>{{ bands_file }}</code> (generated {{ generated_at }})
     <table>
       {% for name, size in model_files %}<tr><td><code>{{ name }}</code></td><td>{{ "%.1f"|format(size / 1024) }} KB</td></tr>{% endfor %}
     </table>
